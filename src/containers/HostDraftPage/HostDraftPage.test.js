@@ -41,7 +41,11 @@ const config = () => ({
 });
 const render = () => renderWithProviders(<HostDraftPage />, { config: config(), messages });
 
-beforeEach(() => window.localStorage.clear());
+beforeEach(() => {
+  window.localStorage.clear();
+  jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
+});
+afterEach(() => jest.restoreAllMocks());
 
 it('validates, reviews, saves, and restores a local draft without publishing', async () => {
   const user = userEvent.setup();

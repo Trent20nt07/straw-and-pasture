@@ -33,6 +33,9 @@ const HostDraftPage = () => {
   const [initialValues] = useState(() => readBoardingDraft(browserDraftStorage()));
   const heading = useRef(null);
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     if (step > 0) heading.current?.focus();
   }, [step]);
   const m = (id, values) => intl.formatMessage({ id: `HostDraft.${id}` }, values);
