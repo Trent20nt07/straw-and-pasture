@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
 import { LISTING_STATE_CLOSED, propTypes } from '../../util/types';
 import { OFFER, REQUEST } from '../../transactions/transaction';
+import { getBoardingDetails } from '../../util/strawPasture';
 
 // Global ducks (for Redux actions and thunks)
 import { getMarketplaceEntities } from '../../ducks/marketplaceData.duck';
@@ -55,6 +56,7 @@ import SectionMapMaybe from './SectionMapMaybe';
 import SectionGallery from './SectionGallery';
 import CustomListingFields from './CustomListingFields';
 import ListingPageAccessWrapper from './ListingPageAccessWrapper';
+import BoardingOverview from './BoardingOverview';
 
 import css from './ListingPage.module.css';
 
@@ -162,6 +164,18 @@ export const ListingPageComponent = props => {
     );
   }
   const unitType = publicData.unitType;
+  const isBoarding = publicData.listingType === 'animal-boarding';
+  const boardingDetailKeys = isBoarding
+    ? getBoardingDetails(publicData, listingConfig.listingFields, intl).map(d => d.key)
+    : [];
+  const remainingFields = isBoarding
+    ? listingConfig.listingFields.filter(
+        f =>
+          !boardingDetailKeys.includes(f.key) &&
+          (publicData[f.key] != null || metadata?.[f.key] != null)
+      )
+    : listingConfig.listingFields;
+  const locationLabel = !config.maps?.fuzzy?.enabled ? publicData.location?.address : null;
   const isNegotiation = processType === 'negotiation';
 
   const commonParams = { params, history, routes: routeConfiguration };
@@ -235,8 +249,28 @@ export const ListingPageComponent = props => {
         },
       }}
     >
-      <LayoutSingleColumn className={css.pageRoot} topbar={topbar} footer={<FooterContainer />}>
-        <div className={css.contentWrapperForProductLayout}>
+      <LayoutSingleColumn
+        className={classNames(css.pageRoot, { [css.boardingPage]: isBoarding })}
+        topbar={topbar}
+        footer={<FooterContainer />}
+      >
+        {isBoarding && (
+          <header className={css.boardingHeader}>
+            <NamedLink className={css.boardingBack} name="SearchPage">
+              ← <FormattedMessage id="StrawPasture.backToBoarding" />
+            </NamedLink>
+            <p className={css.boardingEyebrow}>
+              <FormattedMessage id="StrawPasture.propertyDetails" />
+            </p>
+            <h1 className={css.boardingTitle}>{richTitle}</h1>
+            {locationLabel && <p className={css.boardingLocation}>{locationLabel}</p>}
+          </header>
+        )}
+        <div
+          className={classNames(css.contentWrapperForProductLayout, {
+            [css.boardingContent]: isBoarding,
+          })}
+        >
           <div className={css.mainColumnForProductLayout}>
             <Notifications
               mounted={mounted}
@@ -260,25 +294,31 @@ export const ListingPageComponent = props => {
                 aspectHeight={config.layout.listingImage.aspectHeight}
               />
             )}
-            <div
-              className={showListingImage ? css.mobileHeading : css.noListingImageHeadingProduct}
-            >
-              {showListingImage ? (
-                <H2 as="h1" className={css.orderPanelTitle}>
-                  <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
-                </H2>
-              ) : (
-                <H3 as="h1" className={css.orderPanelTitle}>
-                  <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
-                </H3>
-              )}
-            </div>
+            {!isBoarding && (
+              <div
+                className={showListingImage ? css.mobileHeading : css.noListingImageHeadingProduct}
+              >
+                {showListingImage ? (
+                  <H2 as="h1" className={css.orderPanelTitle}>
+                    <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
+                  </H2>
+                ) : (
+                  <H3 as="h1" className={css.orderPanelTitle}>
+                    <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
+                  </H3>
+                )}
+              </div>
+            )}
             {showDescription && <SectionText text={description} showAsIngress />}
+
+            {isBoarding && (
+              <BoardingOverview publicData={publicData} fields={listingConfig.listingFields} />
+            )}
 
             <CustomListingFields
               publicData={publicData}
               metadata={metadata}
-              listingFieldConfigs={listingConfig.listingFields}
+              listingFieldConfigs={remainingFields}
               categoryConfiguration={config.categoryConfiguration}
               intl={intl}
             />
@@ -308,6 +348,7 @@ export const ListingPageComponent = props => {
             <OrderPanel
               className={classNames(css.productOrderPanel, {
                 [css.imagesEnabled]: showListingImage,
+                [css.boardingOrderPanel]: isBoarding,
               })}
               listing={currentListing}
               isOwnListing={isOwnListing}
@@ -324,8 +365,12 @@ export const ListingPageComponent = props => {
               }
               title={<FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />}
               titleDesktop={
-                <H4 as="h1" className={css.orderPanelTitle}>
-                  <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
+                <H4 as={isBoarding ? 'h2' : 'h1'} className={css.orderPanelTitle}>
+                  {isBoarding ? (
+                    <FormattedMessage id="StrawPasture.planYourStay" />
+                  ) : (
+                    <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
+                  )}
                 </H4>
               }
               sectionHeadingAs="h2"

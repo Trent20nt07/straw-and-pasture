@@ -99,6 +99,13 @@ describe('boarding details', () => {
     expect(
       getBoardingDetails({ feedingProvided: true }, [{ ...feeding, scope: 'private' }], intl)
     ).toEqual([]);
+    expect(
+      getBoardingDetails(
+        { feedingProvided: true },
+        [{ ...feeding, showConfig: { label: 'Feeding', displayOnListingPage: false } }],
+        intl
+      )
+    ).toEqual([]);
     expect(getBoardingFieldNames([animals, { ...feeding, scope: 'private' }])).toEqual([
       'publicData.animals',
     ]);

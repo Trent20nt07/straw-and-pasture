@@ -13,6 +13,10 @@ remain unchanged.
 - Search cards show only recognized, configured public boarding fields. Missing feeding/cleaning data is not interpreted as “not included.”
 - Authentication, listing creation, conversations, galleries, native pricing, filters, sorting, and transactions retain their existing paths.
 - Card layout changes are scoped so the existing featured-listing carousel keeps its original dimensions.
+- Animal-boarding detail pages have a branded title/location header, a concise boarding overview, and a host-discussion checklist. They show supplied public details only and respect field display settings.
+- Locations retain the native map when its provider is configured. Otherwise, a text location and directions guidance replace the broken map; fuzzy-location mode never reveals the exact address.
+- The progress preview includes a four-step property draft: property, boarding/care, description/price, and review. Explicit saves stay in the current browser; drafts restore on return and are never submitted to Sharetribe.
+- Shared grid and homepage width constraints keep the homepage and owner flow within narrow screens.
 
 ## Test Console configuration
 
@@ -55,18 +59,20 @@ verified-host badges, or availability claims are shown.
 
 ## Validation
 
-- Targeted tests for the homepage, listings, filters, native order panel, and preview routing,
-  including existing ListingCard snapshots.
+- 97 passing tests across 13 targeted suites for the homepage, listings, filters, native order panel,
+  preview routing, owner draft validation/storage and form flow, and location fallbacks;
+  includes two existing ListingCard snapshots.
 - Production frontend and server bundle compilation.
 - Browser review: homepage, real listing retrieval, animal/type/price search parameters,
   native filter controls, empty results, reset filters, and existing listing detail route.
+- Browser review also covers the four-step owner flow, backward navigation, local save,
+  and responsive layout in a 390px iframe alongside the desktop viewport.
 - Account creation, messages, bookings, payments, and end-to-end transactions were not
-  submitted during review. Mobile layout is implemented in responsive CSS; browser review
-  was performed at the available desktop viewport.
+  submitted during review. No Console settings changed in this second development pass.
 
-Before any public launch, review legal/about content, supply real property details, finish
-global branding/social links, configure maps if needed, and separately approve deployment
-and payment setup.
+Before a full marketplace launch, review legal/about content, supply real property details,
+finish global branding/social links, configure maps if needed, and separately approve
+transaction and payment setup.
 
 ## Public progress preview
 
@@ -81,7 +87,10 @@ tracked in `.openai/hosting.json`; GitHub development remains on the feature bra
 Only this build enables `REACT_APP_PROGRESS_PREVIEW=true`: a visible preview label,
 browsing-only route gate, and listing price/details in place of transaction forms.
 Homepage, search, filters, listing details, and public profiles use actual Test data.
-Accounts, listing creation, messaging, and bookings are unavailable in the public preview.
+At `/l/new`, owners can prepare and explicitly save an unpublished draft on their device.
+Only bounded text and configured option values are stored; no photos, accounts, or server
+records are created. Drafts do not sync between devices and may be lost if browser data is cleared.
+Accounts, listing publication, messaging, and bookings are unavailable in the public preview.
 The normal app build retains the existing Express backend and full marketplace flows.
 
 ## Photo

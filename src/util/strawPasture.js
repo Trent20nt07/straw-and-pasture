@@ -79,7 +79,13 @@ export const getBoardingFieldNames = fields =>
 /** Render only published, configured details. Missing care services are never treated as false. */
 export const getBoardingDetails = (publicData = {}, fields = [], intl) =>
   fields
-    .filter(f => f.scope === 'public' && boardingKeys.includes(f.key) && f.showConfig?.label)
+    .filter(
+      f =>
+        f.scope === 'public' &&
+        boardingKeys.includes(f.key) &&
+        f.showConfig?.label &&
+        f.showConfig.displayOnListingPage !== false
+    )
     .map(f => {
       const value = publicData[f.key];
       const options = f.enumOptions || [];

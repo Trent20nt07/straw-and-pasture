@@ -1,4 +1,5 @@
 .intro {
+  min-width: 0;
   color: #203c24;
   background: #f6f4ed;
 }
@@ -30,8 +31,9 @@
 }
 .heroContent {
   position: relative;
-  width: 1280px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1280px;
+  min-width: 0;
   margin: 0 auto;
   padding: 60px 24px 96px;
 }

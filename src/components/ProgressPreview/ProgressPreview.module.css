@@ -1,3 +1,6 @@
+.previewContent {
+  padding-bottom: 48px;
+}
 .notice {
   position: fixed;
   z-index: 100;

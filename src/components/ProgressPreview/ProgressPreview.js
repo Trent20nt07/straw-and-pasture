@@ -1,7 +1,9 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import { Link, useLocation } from 'react-router-dom';
 import { FormattedMessage } from '../../util/reactIntl';
 import css from './ProgressPreview.module.css';
+const HostDraftPage = loadable(() => import('../../containers/HostDraftPage/HostDraftPage'));
 
 export const isProgressPreview = process.env.REACT_APP_PROGRESS_PREVIEW === 'true';
 
@@ -19,8 +21,10 @@ const ProgressPreview = ({ children }) => {
   const { pathname } = useLocation();
   if (!isProgressPreview) return children;
   return (
-    <>
-      {isPreviewPath(pathname) ? (
+    <div className={css.previewContent}>
+      {pathname === '/l/new' || pathname === '/l/new/' ? (
+        <HostDraftPage />
+      ) : isPreviewPath(pathname) ? (
         children
       ) : (
         <main className={css.gate}>
@@ -39,7 +43,7 @@ const ProgressPreview = ({ children }) => {
       <aside className={css.notice} aria-label="Progress preview">
         <FormattedMessage id="StrawPasture.previewNotice" />
       </aside>
-    </>
+    </div>
   );
 };
 

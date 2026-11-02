@@ -441,7 +441,7 @@ const OrderPanel = props => {
   if (process.env.REACT_APP_PROGRESS_PREVIEW === 'true') {
     return (
       <div className={classes}>
-        <h1 className={titleClasses}>{title}</h1>
+        {titleDesktop || <h1 className={titleClasses}>{title}</h1>}
         <PriceMaybe
           price={price}
           publicData={publicData}
