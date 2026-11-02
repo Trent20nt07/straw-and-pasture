@@ -23,16 +23,14 @@ export const LandingPageComponent = props => {
   const { pageAssetsData, inProgress, error } = props;
 
   return (
-    <>
-      <StrawPastureIntro />
-      <PageBuilder
+    <PageBuilder
       pageAssetsData={pageAssetsData?.[camelize(ASSET_NAME)]?.data}
       inProgress={inProgress}
       error={error}
       fallbackPage={<FallbackPage error={error} />}
+      mainContent={<StrawPastureIntro />}
       featuredListings={getFeaturedListingsProps(camelize(ASSET_NAME), props)}
-      />
-    </>
+    />
   );
 };
 
