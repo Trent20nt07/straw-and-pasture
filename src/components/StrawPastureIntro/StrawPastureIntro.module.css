@@ -1,0 +1,22 @@
+.intro {
+  background: #f6f3ec;
+  color: #183b16;
+  border-bottom: 1px solid #d9d6cc;
+}
+.inner { max-width: 1200px; margin: 0 auto; padding: 52px 24px 44px; }
+.eyebrow { color: #286138; font-size: 13px; letter-spacing: .16em; font-weight: 800; margin: 0 0 12px; }
+.heading { font-size: clamp(36px, 5vw, 64px); line-height: 1.08; letter-spacing: -.035em; margin: 0 0 18px; font-weight: 800; }
+.heading span { color: #86700e; }
+.lede { font-size: clamp(17px, 1.9vw, 21px); line-height: 1.55; max-width: 760px; margin: 0 0 30px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.card { background: #fff; border: 1px solid #d9ddcf; border-radius: 14px; padding: 24px; }
+.card h2 { color: #183b16; font-size: 22px; line-height: 1.25; margin: 0 0 12px; }
+.card p { color: #404b3e; font-size: 16px; line-height: 1.5; margin: 0 0 20px; }
+.card a { color: #135b37; text-decoration: underline; font-weight: 700; }
+.card a:focus-visible { outline: 3px solid #f2c335; outline-offset: 4px; }
+.note { font-size: 13px; color: #546456; line-height: 1.5; margin: 18px 0 0; }
+@media (max-width: 800px) {
+  .inner { padding: 38px 18px 32px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+}
