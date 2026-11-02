@@ -13,6 +13,7 @@ import {
 import { constructQueryParamName, isOriginInUse } from '../../util/search';
 import { hasPermissionToViewData, isUserAuthorized } from '../../util/userHelpers';
 import { parse } from '../../util/urlHelpers';
+import { getBoardingFieldNames } from '../../util/strawPasture';
 import { getReferralParams } from '../../util/webStorageHelpers';
 
 import { addMarketplaceEntities } from '../../ducks/marketplaceData.duck';
@@ -449,6 +450,7 @@ export const loadData = (params, search, config) => (dispatch, getState, sdk) =>
         'publicData.shippingEnabled',
         'publicData.priceVariationsEnabled',
         'publicData.priceVariants',
+        ...getBoardingFieldNames(config.listing.listingFields),
       ],
       'fields.user': ['profile.displayName', 'profile.abbreviatedName'],
       'fields.image': [

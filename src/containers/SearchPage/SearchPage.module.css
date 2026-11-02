@@ -324,12 +324,45 @@
 }
 
 /* Straw & Pasture V1: scoped search design. Existing Sharetribe filters remain operational. */
-.boardingBanner { background: #183b16; color: #fff; padding: 36px 24px 38px; }
-.boardingBannerInner { max-width: 1368px; margin: 0 auto; }
-.boardingEyebrow { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: #f2c335; margin: 0 0 10px; }
-.boardingBanner h1 { font-size: clamp(27px, 3.4vw, 44px); line-height: 1.12; margin: 0 0 10px; color: #fff; }
-.boardingBanner p:last-child { color: #edf1e9; margin: 0; font-size: 16px; }
-.layoutWrapperContainer { background: #f6f3ec; }
-.layoutWrapperMain { background: #f6f3ec; }
-@media (min-width: 768px) { .layoutWrapperMain { background: #f6f3ec; border-left-color: #d8ded0; } }
-.filterColumnContent { color: #183b16; }
+.boardingBanner {
+  background: #183b16;
+  color: #fff;
+  padding: 36px 24px 38px;
+}
+.boardingBannerInner {
+  max-width: 1368px;
+  margin: 0 auto;
+}
+.boardingEyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #f2c335;
+  margin: 0 0 10px;
+}
+.boardingTitle {
+  font-size: clamp(27px, 3.4vw, 44px);
+  line-height: 1.12;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.boardingDescription {
+  color: #edf1e9;
+  margin: 0;
+  font-size: 16px;
+}
+.layoutWrapperContainer {
+  background: #f6f3ec;
+}
+.layoutWrapperMain {
+  background: #f6f3ec;
+}
+@media (min-width: 768px) {
+  .layoutWrapperMain {
+    background: #f6f3ec;
+    border-left-color: #d8ded0;
+  }
+}
+.filterColumnContent {
+  color: #183b16;
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { renderWithProviders as render, testingLibrary } from '../../util/testHelpers';
+import { renderWithProviders as providerRender, testingLibrary } from '../../util/testHelpers';
 
 import { LandingPageComponent } from './LandingPage';
+import messages from '../../translations/en.json';
+const render = (ui, options = {}) => providerRender(ui, { ...options, messages });
 
 const { waitFor } = testingLibrary;
 
@@ -24,7 +26,7 @@ describe('LandingPage', () => {
     });
   });
 
-  it('renders given pageAssetsData', async () => {
+  it('renders one branded homepage without duplicating hosted sections', async () => {
     const data = {
       sections: [
         {
@@ -51,7 +53,7 @@ describe('LandingPage', () => {
       ],
     };
 
-    const { getByText } = render(
+    const { getByRole, queryByText } = render(
       <LandingPageComponent
         pageAssetsData={{ landingPage: { data } }}
         inProgress={false}
@@ -60,11 +62,10 @@ describe('LandingPage', () => {
     );
 
     await waitFor(() => {
-      // Expect following texts to be found from rendered UI (inside <body>)
-      expect(getByText('Landing page')).toBeInTheDocument();
-      expect(getByText('This is the description of the section')).toBeInTheDocument();
-      expect(getByText('Block title here')).toBeInTheDocument();
-      expect(getByText('Lorem ipsum')).toBeInTheDocument();
+      expect(
+        getByRole('heading', { level: 1, name: 'Access agriculture. Anywhere.' })
+      ).toBeInTheDocument();
+      expect(queryByText('Block title here')).not.toBeInTheDocument();
     });
   });
 });

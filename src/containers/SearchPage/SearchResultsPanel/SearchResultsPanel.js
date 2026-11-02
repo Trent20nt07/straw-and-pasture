@@ -80,6 +80,7 @@ const SearchResultsPanel = props => {
             <ListingCard
               className={css.listingCard}
               listing={l}
+              showBoardingDetails
               renderSizes={cardRenderSizes(isMapVariant)}
               setActiveListing={setActiveListing}
             />

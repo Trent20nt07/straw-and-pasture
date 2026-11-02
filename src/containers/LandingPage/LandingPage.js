@@ -5,6 +5,7 @@ import { bool, object } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { useIntl } from '../../util/reactIntl';
 import { camelize } from '../../util/string';
 import { propTypes } from '../../util/types';
 
@@ -21,14 +22,23 @@ const PageBuilder = loadable(() =>
 
 export const LandingPageComponent = props => {
   const { pageAssetsData, inProgress, error } = props;
+  const intl = useIntl();
 
   return (
     <PageBuilder
+      title={intl.formatMessage({ id: 'StrawPasture.pageTitle' })}
+      description={intl.formatMessage({ id: 'StrawPasture.lede' })}
       pageAssetsData={pageAssetsData?.[camelize(ASSET_NAME)]?.data}
       inProgress={inProgress}
       error={error}
       fallbackPage={<FallbackPage error={error} />}
-      mainContent={<StrawPastureIntro />}
+      mainContent={
+        <StrawPastureIntro
+          recentListings={props.recentListings}
+          recentListingsLoading={props.recentListingsLoading}
+          recentListingsError={props.recentListingsError}
+        />
+      }
       featuredListings={getFeaturedListingsProps(camelize(ASSET_NAME), props)}
     />
   );
@@ -46,7 +56,18 @@ const mapStateToProps = state => {
 
   const getListingEntitiesById = listingIds => getListingsById(state, listingIds);
 
-  return { pageAssetsData, featuredListingData, getListingEntitiesById, inProgress, error };
+  const { recentListingIds = [], recentListingsLoading, recentListingsError } =
+    state.LandingPage || {};
+  return {
+    pageAssetsData,
+    featuredListingData,
+    getListingEntitiesById,
+    inProgress,
+    error,
+    recentListings: getListingsById(state, recentListingIds),
+    recentListingsLoading,
+    recentListingsError,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

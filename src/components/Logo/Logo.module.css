@@ -36,3 +36,32 @@
 .logo48 {
   max-height: 48px;
 }
+
+.brandLockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brandLockup .root {
+  flex-shrink: 0;
+  width: auto !important;
+}
+.wordmark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  line-height: 1.1;
+  white-space: nowrap;
+  color: #244631;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .wordmark {
+    font-size: 15px;
+  }
+  .brandLockup {
+    gap: 6px;
+  }
+  .brandLockup .logo {
+    max-width: 30px;
+  }
+}

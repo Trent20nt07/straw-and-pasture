@@ -17,6 +17,8 @@ import {
   ListingCardThumbnail,
 } from '../../components';
 
+import BoardingDetails from '../BoardingDetails/BoardingDetails';
+
 import { getListingCardTranslations } from './ListingCard.helpers';
 
 import css from './ListingCard.module.css';
@@ -109,6 +111,7 @@ export const ListingCard = props => {
     setActiveListing,
     showAuthorInfo = true,
     lazyLoadImage = true,
+    showBoardingDetails = false,
   } = props;
 
   const translations = getListingCardTranslations(listing, config, intl);
@@ -122,7 +125,9 @@ export const ListingCard = props => {
     authorName,
   } = translations;
 
-  const classes = classNames(rootClassName || css.root, className);
+  const classes = classNames(rootClassName || css.root, className, {
+    [css.boardingCard]: showBoardingDetails,
+  });
 
   const id = listing?.id?.uuid;
   const { title = '', publicData } = listing?.attributes || {};
@@ -195,6 +200,7 @@ export const ListingCard = props => {
             </div>
           ) : null}
         </div>
+        {showBoardingDetails && <BoardingDetails publicData={publicData} compact />}
       </div>
     </NamedLink>
   );

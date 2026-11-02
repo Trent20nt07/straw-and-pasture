@@ -253,12 +253,16 @@ const mergeBranding = (brandingConfig, defaultBranding) => {
     ...rest
   } = brandingConfig || {};
 
-  const marketplaceColor = marketplaceColors?.mainColor || defaultBranding.marketplaceColor;
+  const marketplaceColor = defaultBranding.useLocalColors
+    ? defaultBranding.marketplaceColor
+    : marketplaceColors?.mainColor || defaultBranding.marketplaceColor;
   const marketplaceColorDark = marketplaceColor ? hexToCssHsl(marketplaceColor, -10) : null;
   const marketplaceColorLight = marketplaceColor ? hexToCssHsl(marketplaceColor, 10) : null;
 
   // The 'marketplaceColor' has a special status for branding. Other colors are just prefixed with "color".
-  const colorPrimaryButton = marketplaceColors?.primaryButton;
+  const colorPrimaryButton = defaultBranding.useLocalColors
+    ? defaultBranding.colorPrimaryButton
+    : marketplaceColors?.primaryButton;
   const colorPrimaryButtonDark = colorPrimaryButton ? hexToCssHsl(colorPrimaryButton, -10) : null;
   const colorPrimaryButtonLight = colorPrimaryButton ? hexToCssHsl(colorPrimaryButton, 10) : null;
 

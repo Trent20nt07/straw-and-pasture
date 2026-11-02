@@ -1,0 +1,42 @@
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px solid #dce2d6;
+  border-radius: 12px;
+  background: #f6f4ed;
+}
+.compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+}
+.item {
+  min-width: 0;
+}
+.label {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #58664e;
+}
+.value {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #203c24;
+  overflow-wrap: anywhere;
+}
+.compact .item {
+  background: #eef2e8;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.compact .label {
+  font-size: 10px;
+}
+.compact .value {
+  font-size: 12px;
+}

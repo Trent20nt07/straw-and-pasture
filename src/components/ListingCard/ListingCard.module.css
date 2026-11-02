@@ -128,12 +128,41 @@
   hyphens: auto;
 }
 
-/* Straw & Pasture: listing card branding without changing listing data or prices. */
-.root { color: #183b16; }
-.aspectRatioWrapper { border-radius: 0; overflow: hidden; }
-.rootForImage { border: 0; border-radius: 0; }
-.info { padding: 14px 16px 16px; background: #fff; }
-.priceValue, .perUnit { color: #23633c; }
-.title { color: #183b16; font-weight: 800; font-size: 17px; line-height: 1.35; }
-.authorInfo { color: #536151; }
-.root:focus-visible { outline: 3px solid #f2c335; outline-offset: 3px; }
+/* Search-only presentation keeps the featured carousel dimensions unchanged. */
+.boardingCard {
+  color: #203c24;
+  height: 100%;
+}
+.boardingCard .aspectRatioWrapper {
+  border-radius: 0;
+  overflow: hidden;
+}
+.boardingCard .aspectRatioWrapper:hover {
+  transform: none;
+  box-shadow: none;
+}
+.boardingCard .rootForImage {
+  border: 0;
+  border-radius: 0;
+}
+.boardingCard .info {
+  flex: 1;
+  padding: 18px;
+  background: #fffdf8;
+}
+.boardingCard .priceValue,
+.boardingCard .perUnit {
+  color: #365a31;
+}
+.boardingCard .title {
+  color: #203c24;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.boardingCard .authorInfo {
+  color: #637059;
+}
+.boardingCard:focus-visible {
+  outline: 3px solid #c49d39;
+  outline-offset: -3px;
+}

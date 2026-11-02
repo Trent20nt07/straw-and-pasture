@@ -218,9 +218,15 @@ export class SearchPageComponent extends Component {
         <TopbarContainer rootClassName={topbarClasses} currentSearchParams={validQueryParams} />
         <div className={css.boardingBanner}>
           <div className={css.boardingBannerInner}>
-            <p className={css.boardingEyebrow}>STRAW &amp; PASTURE · BOARDING</p>
-            <h1>Find space for your animals</h1>
-            <p>Browse available barns, pastures, and shelters from landowners in your area.</p>
+            <p className={css.boardingEyebrow}>
+              <FormattedMessage id="StrawPasture.searchEyebrow" />
+            </p>
+            <h1 className={css.boardingTitle}>
+              <FormattedMessage id="StrawPasture.searchTitle" />
+            </h1>
+            <p className={css.boardingDescription}>
+              <FormattedMessage id="StrawPasture.searchDescription" />
+            </p>
           </div>
         </div>
         <div className={css.layoutWrapperContainer}>
