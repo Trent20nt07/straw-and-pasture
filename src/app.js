@@ -28,6 +28,7 @@ import { MaintenanceMode } from './components';
 // routing
 import routeConfiguration from './routing/routeConfiguration';
 import Routes from './routing/Routes';
+import ProgressPreview from './components/ProgressPreview/ProgressPreview';
 
 // Sharetribe Web Template uses English translations as default translations.
 import defaultMessages from './translations/en.json';
@@ -224,7 +225,9 @@ export const ClientApp = props => {
           <HelmetProvider>
             <IncludeScripts config={appConfig} initialPathname={window.location.pathname} />
             <BrowserRouter>
-              <Routes logLoadDataCalls={logLoadDataCalls} />
+              <ProgressPreview>
+                <Routes logLoadDataCalls={logLoadDataCalls} />
+              </ProgressPreview>
             </BrowserRouter>
           </HelmetProvider>
         </Provider>

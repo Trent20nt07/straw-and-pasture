@@ -1,7 +1,8 @@
 # Straw & Pasture prototype
 
-Branch: `feature/straw-pasture-v1`. No deployment, payment, billing, transaction-process,
-or production Console changes are part of this iteration.
+Branch: `feature/straw-pasture-v1`. The user approved a public progress preview on
+November 2, 2026. Payment, billing, transaction-process, and production Console settings
+remain unchanged.
 
 ## Implemented
 
@@ -54,7 +55,8 @@ verified-host badges, or availability claims are shown.
 
 ## Validation
 
-- 62 targeted tests across seven suites, including two existing ListingCard snapshots.
+- Targeted tests for the homepage, listings, filters, native order panel, and preview routing,
+  including existing ListingCard snapshots.
 - Production frontend and server bundle compilation.
 - Browser review: homepage, real listing retrieval, animal/type/price search parameters,
   native filter controls, empty results, reset filters, and existing listing detail route.
@@ -64,7 +66,23 @@ verified-host badges, or availability claims are shown.
 
 Before any public launch, review legal/about content, supply real property details, finish
 global branding/social links, configure maps if needed, and separately approve deployment
-and payment setup. This branch has not been publicly deployed.
+and payment setup.
+
+## Public progress preview
+
+Preview URL: https://straw-pasture-progress.tre20nt07.chatgpt.site
+
+`node scripts/build-progress-preview.js` builds a static browsing preview in `dist/`,
+using the public Sharetribe **Test** application ID in `scripts/progress-preview.config.json`.
+It adds the production bundle entrypoints to the static HTML shell, requests no indexing,
+and packages the frontend assets without server files or source maps. Sites identity is
+tracked in `.openai/hosting.json`; GitHub development remains on the feature branch.
+
+Only this build enables `REACT_APP_PROGRESS_PREVIEW=true`: a visible preview label,
+browsing-only route gate, and listing price/details in place of transaction forms.
+Homepage, search, filters, listing details, and public profiles use actual Test data.
+Accounts, listing creation, messaging, and bookings are unavailable in the public preview.
+The normal app build retains the existing Express backend and full marketplace flows.
 
 ## Photo
 
