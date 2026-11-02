@@ -46,5 +46,6 @@ const html = fs
   );
 fs.writeFileSync(path.join(output, 'index.html'), html);
 fs.writeFileSync(path.join(output, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
-fs.writeFileSync(path.join(output, '_redirects'), '/* /index.html 200\n');
+// Sites serves unknown page paths through its SPA fallback. A wildcard rewrite
+// would also intercept real JavaScript and CSS assets on the public host.
 console.log('Packaged the browsing preview in dist/.');

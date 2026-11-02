@@ -83,6 +83,8 @@ using the public Sharetribe **Test** application ID in `scripts/progress-preview
 It adds the production bundle entrypoints to the static HTML shell, requests no indexing,
 and packages the frontend assets without server files or source maps. Sites identity is
 tracked in `.openai/hosting.json`; GitHub development remains on the feature branch.
+The hosting manifest enables the native single-page-app fallback for direct page URLs;
+no wildcard rewrite intercepts bundle or stylesheet requests.
 
 Only this build enables `REACT_APP_PROGRESS_PREVIEW=true`: a visible preview label,
 browsing-only route gate, and listing price/details in place of transaction forms.
