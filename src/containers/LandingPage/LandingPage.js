@@ -9,6 +9,7 @@ import { camelize } from '../../util/string';
 import { propTypes } from '../../util/types';
 
 import FallbackPage from './FallbackPage';
+import StrawPastureIntro from '../../components/StrawPastureIntro/StrawPastureIntro';
 import { ASSET_NAME } from './LandingPage.duck';
 import { fetchFeaturedListings } from '../../ducks/featuredListings.duck';
 import { getListingsById } from '../../ducks/marketplaceData.duck';
@@ -22,13 +23,16 @@ export const LandingPageComponent = props => {
   const { pageAssetsData, inProgress, error } = props;
 
   return (
-    <PageBuilder
+    <>
+      <StrawPastureIntro />
+      <PageBuilder
       pageAssetsData={pageAssetsData?.[camelize(ASSET_NAME)]?.data}
       inProgress={inProgress}
       error={error}
       fallbackPage={<FallbackPage error={error} />}
       featuredListings={getFeaturedListingsProps(camelize(ASSET_NAME), props)}
-    />
+      />
+    </>
   );
 };
 
