@@ -216,6 +216,13 @@ export class SearchPageComponent extends Component {
         schema={schema}
       >
         <TopbarContainer rootClassName={topbarClasses} currentSearchParams={validQueryParams} />
+        <div className={css.boardingBanner}>
+          <div className={css.boardingBannerInner}>
+            <p className={css.boardingEyebrow}>STRAW &amp; PASTURE · BOARDING</p>
+            <h1>Find space for your animals</h1>
+            <p>Browse available barns, pastures, and shelters from landowners in your area.</p>
+          </div>
+        </div>
         <div className={css.layoutWrapperContainer}>
           <aside className={css.layoutWrapperFilterColumn} data-testid="filterColumnAside">
             <div className={css.filterColumnContent}>
