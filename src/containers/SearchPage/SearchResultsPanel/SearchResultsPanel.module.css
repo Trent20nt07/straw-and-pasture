@@ -68,3 +68,10 @@
   margin-top: auto;
   background-color: transparent;
 }
+
+/* Farm-style cards and responsive property grid. Listing data comes from Sharetribe. */
+.listingCards { gap: 20px; }
+.resultItem { min-width: 0; background: #fff; border: 1px solid #dae1d6; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(24,59,22,.06); }
+.listingCard { width: 100%; }
+@media (min-width: 1440px) { .listingCards { grid-template-columns: repeat(3, 1fr); } }
+@media (--viewportXLarge) { .listingCards { grid-template-columns: repeat(4, 1fr); } }
