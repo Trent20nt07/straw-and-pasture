@@ -127,3 +127,13 @@
   word-break: break-word;
   hyphens: auto;
 }
+
+/* Straw & Pasture: listing card branding without changing listing data or prices. */
+.root { color: #183b16; }
+.aspectRatioWrapper { border-radius: 0; overflow: hidden; }
+.rootForImage { border: 0; border-radius: 0; }
+.info { padding: 14px 16px 16px; background: #fff; }
+.priceValue, .perUnit { color: #23633c; }
+.title { color: #183b16; font-weight: 800; font-size: 17px; line-height: 1.35; }
+.authorInfo { color: #536151; }
+.root:focus-visible { outline: 3px solid #f2c335; outline-offset: 3px; }
