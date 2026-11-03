@@ -77,7 +77,7 @@ const routeConfiguration = (layoutConfig, accessControlConfig) => {
   const authForPrivateMarketplace = isPrivateMarketplace ? { auth: true } : {};
   
   return [
-    { path: '/welcome', name: 'WelcomePage', component: WelcomePage },
+    { path: '/welcome', name: 'WelcomePage', component: WelcomePage, loadData: pageDataLoadingAPI.LandingPage.loadData },
     {
       path: '/',
       name: 'LandingPage',

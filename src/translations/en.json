@@ -742,6 +742,8 @@
   "LoginForm.passwordLabel": "Password",
   "LoginForm.passwordPlaceholder": "Enter your password…",
   "LoginForm.passwordRequired": "This field is required.",
+  "LogoReveal.label": "Welcome to Straw & Pasture",
+  "LogoReveal.skip": "Skip intro",
   "MainPanelHeader.foundResults": "{count, number} {count, plural, one {result} other {results}}",
   "MainPanelHeader.loadingResults": "Loading search results…",
   "MainPanelHeader.sortBy": "Sort by:",

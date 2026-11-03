@@ -117,10 +117,6 @@ Free under the Unsplash License at retrieval. This is a mood image, not a listed
 
 ## Custom welcome entrance
 
-`/welcome` is a dedicated, shareable splash page with the existing pasture photograph,
-Chloe's hosted logo, forest-green and cream styling, and a reduced-motion-aware entrance.
-Its links open the homepage, search, listing creation, and sign-in immediately; no
-timer or repeat-visit interstitial blocks existing page links. The photograph remains
-explicitly decorative. The route works in both the preview and normal app builds.
+The homepage plays a dismissible logo reveal once per browser session. The original circular logo fades in over a blurred glass overlay; its map pin drops into place, then the assembled mark enlarges and fades into the real homepage. `/welcome` replays the entrance and returns to `/` after completion. Reduced-motion visitors enter directly. Skip, Escape, image-error handling, and a six-second failsafe prevent the entrance from blocking access.
 
 The pending marketplace walkthrough is retained in [testing-walkthrough.md](testing-walkthrough.md).

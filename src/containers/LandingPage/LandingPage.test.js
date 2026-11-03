@@ -10,6 +10,25 @@ const render = (ui, options = {}) => providerRender(ui, { ...options, messages }
 const { waitFor } = testingLibrary;
 
 describe('LandingPage', () => {
+  beforeEach(() => sessionStorage.setItem('straw-pasture-intro-seen-v1', '1'));
+  afterEach(() => sessionStorage.clear());
+  it('skips the entrance for reduced-motion visitors', () => {
+    sessionStorage.clear();
+    const previous = window.matchMedia;
+    window.matchMedia = () => ({ matches: true });
+    const { queryByRole } = render(<LandingPageComponent inProgress={false} />);
+    expect(queryByRole('dialog')).not.toBeInTheDocument();
+    expect(sessionStorage.getItem('straw-pasture-intro-seen-v1')).toBe('1');
+    window.matchMedia = previous;
+  });
+  it('shows the entrance on a first visit and remembers dismissal', () => {
+    sessionStorage.clear();
+    const { getByRole, queryByRole } = render(<LandingPageComponent inProgress={false} />);
+    expect(getByRole('dialog')).toBeInTheDocument();
+    testingLibrary.fireEvent.click(getByRole('button', { name: /Skip intro/ }));
+    expect(queryByRole('dialog')).not.toBeInTheDocument();
+    expect(sessionStorage.getItem('straw-pasture-intro-seen-v1')).toBe('1');
+  });
   it('renders the Fallback page on error', async () => {
     const errorMessage = 'LandingPage failed';
     let e = new Error(errorMessage);
