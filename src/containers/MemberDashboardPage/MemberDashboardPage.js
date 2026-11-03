@@ -29,7 +29,7 @@ export default function MemberDashboardPage() {
   ];
   return <Page title={m(host ? 'host' : 'buyer')}>
     <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
-      <main className={css.content}>
+      <div className={css.content}>
         <p className={css.eyebrow}>{m('eyebrow')}</p>
         <div className={css.headingRow}><h1 className={css.heading}>{m(host ? 'host' : 'buyer')}</h1>
           <Link className={css.secondary} to="/demo">{m('workspace')}</Link></div>
@@ -46,7 +46,7 @@ export default function MemberDashboardPage() {
           </section>
           <section className={css.panel}><h2>{m('analytics')}</h2><p>{m('analyticsHelp')}</p><p className={css.note}>{m('payments')}</p></section>
         </>}
-      </main>
+      </div>
     </LayoutSingleColumn>
   </Page>;
 }
