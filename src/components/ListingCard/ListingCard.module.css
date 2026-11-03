@@ -1,4 +1,14 @@
 @import '../../styles/customMediaQueries.css';
+.demoBadge {
+  display: inline-block;
+  color: #6d5c26;
+  background: #f1e4b8;
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
 
 .root {
   /* Layout */
@@ -126,4 +136,43 @@
   /* use break-word if available */
   word-break: break-word;
   hyphens: auto;
+}
+
+/* Search-only presentation keeps the featured carousel dimensions unchanged. */
+.boardingCard {
+  color: #203c24;
+  height: 100%;
+}
+.boardingCard .aspectRatioWrapper {
+  border-radius: 0;
+  overflow: hidden;
+}
+.boardingCard .aspectRatioWrapper:hover {
+  transform: none;
+  box-shadow: none;
+}
+.boardingCard .rootForImage {
+  border: 0;
+  border-radius: 0;
+}
+.boardingCard .info {
+  flex: 1;
+  padding: 18px;
+  background: #fffdf8;
+}
+.boardingCard .priceValue,
+.boardingCard .perUnit {
+  color: #365a31;
+}
+.boardingCard .title {
+  color: #203c24;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.boardingCard .authorInfo {
+  color: #637059;
+}
+.boardingCard:focus-visible {
+  outline: 3px solid #c49d39;
+  outline-offset: -3px;
 }

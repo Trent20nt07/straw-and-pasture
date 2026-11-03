@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { useConfiguration } from '../../context/configurationContext';
 import { ResponsiveImage } from '../../components/';
 
+import LogoMark from './LogoMark';
 import css from './Logo.module.css';
 
 const HEIGHT_24 = 24;
@@ -126,7 +127,7 @@ const Logo = props => {
   // NOTE: logo images are set in hosted branding.json asset or src/config/brandingConfig.js
   const { logoImageDesktop, logoImageMobile, logoSettings } = config.branding;
 
-  return (
+  const logo = (
     <LogoComponent
       {...rest}
       layout={layout}
@@ -135,6 +136,17 @@ const Logo = props => {
       logoSettings={logoSettings}
       marketplaceName={config.marketplaceName}
     />
+  );
+  // The uploaded Straw & Pasture asset is a round badge; pair it with a readable wordmark.
+  return config.marketplaceName === 'Straw & Pasture' ? (
+    <div className={css.brandLockup}>
+      <LogoMark className={css.cleanMark} label={config.marketplaceName} />
+      <span className={css.wordmark} aria-hidden="true">
+        Straw &amp; Pasture
+      </span>
+    </div>
+  ) : (
+    logo
   );
 };
 

@@ -253,12 +253,16 @@ const mergeBranding = (brandingConfig, defaultBranding) => {
     ...rest
   } = brandingConfig || {};
 
-  const marketplaceColor = marketplaceColors?.mainColor || defaultBranding.marketplaceColor;
+  const marketplaceColor = defaultBranding.useLocalColors
+    ? defaultBranding.marketplaceColor
+    : marketplaceColors?.mainColor || defaultBranding.marketplaceColor;
   const marketplaceColorDark = marketplaceColor ? hexToCssHsl(marketplaceColor, -10) : null;
   const marketplaceColorLight = marketplaceColor ? hexToCssHsl(marketplaceColor, 10) : null;
 
   // The 'marketplaceColor' has a special status for branding. Other colors are just prefixed with "color".
-  const colorPrimaryButton = marketplaceColors?.primaryButton;
+  const colorPrimaryButton = defaultBranding.useLocalColors
+    ? defaultBranding.colorPrimaryButton
+    : marketplaceColors?.primaryButton;
   const colorPrimaryButtonDark = colorPrimaryButton ? hexToCssHsl(colorPrimaryButton, -10) : null;
   const colorPrimaryButtonLight = colorPrimaryButton ? hexToCssHsl(colorPrimaryButton, 10) : null;
 
@@ -1426,6 +1430,13 @@ const mergeListingConfig = (hostedConfig, defaultConfigs, categoriesInUse) => {
     ? union(hostedListingFields, defaultListingFields, 'key')
     : hostedListingFields;
 
+  if (process.env.REACT_APP_PROGRESS_PREVIEW === 'true') {
+    const animals = listingFields.find(f => f.key === 'animalsAccepted');
+    if (animals) {
+      const additions = [{option:'goat', label:'Goat'}, {option:'sheep', label:'Sheep'}, {option:'donkey', label:'Donkey'}, {option:'alpaca', label:'Alpaca'}];
+      animals.enumOptions = [...(animals.enumOptions || []), ...additions.filter(a => !animals.enumOptions?.some(o => o.option === a.option))];
+    }
+  }
   const listingTypesInUse = listingTypes.map(lt => `${lt.listingType}`);
 
   return {

@@ -5,6 +5,9 @@ import classNames from 'classnames';
 // Import configs and util modules
 import { FormattedMessage, useIntl } from '../../../../util/reactIntl';
 import { propTypes } from '../../../../util/types';
+import { useConfiguration } from '../../../../context/configurationContext';
+import { types } from '../../../../util/sdkLoader';
+import { demoProperties, hasMapProvider } from '../../../../util/demoProperties';
 import {
   autocompleteSearchRequired,
   autocompletePlaceSelected,
@@ -17,6 +20,7 @@ import {
   FieldLocationAutocompleteInput,
   Button,
   FieldTextInput,
+  FieldSelect,
 } from '../../../../components';
 
 // Import modules from this directory
@@ -67,6 +71,9 @@ export const EditListingLocationForm = props => (
       } = formRenderProps;
 
       const intl = useIntl();
+      const config = useConfiguration();
+      const demoLocationFallback =
+        process.env.REACT_APP_PROGRESS_PREVIEW === 'true' && !hasMapProvider(config.maps);
       const addressRequiredMessage = intl.formatMessage({
         id: 'EditListingLocationForm.addressRequired',
       });
@@ -99,27 +106,75 @@ export const EditListingLocationForm = props => (
             </p>
           ) : null}
 
-          <FieldLocationAutocompleteInput
-            rootClassName={css.locationAddress}
-            inputClassName={css.locationAutocompleteInput}
-            iconClassName={css.locationAutocompleteInputIcon}
-            predictionsClassName={css.predictionsRoot}
-            validClassName={css.validLocation}
-            autoFocus={autoFocus}
-            name="location"
-            id={`${formId}.location`}
-            label={intl.formatMessage({ id: 'EditListingLocationForm.address' })}
-            placeholder={intl.formatMessage({
-              id: 'EditListingLocationForm.addressPlaceholder',
-            })}
-            useDefaultPredictions={false}
-            format={identity}
-            valueFromForm={values.location}
-            validate={composeValidators(
-              autocompleteSearchRequired(addressRequiredMessage),
-              autocompletePlaceSelected(addressNotRecognizedMessage)
-            )}
-          />
+          {demoLocationFallback ? (
+            <>
+              <FieldSelect
+                className={css.locationAddress}
+                name="location"
+                id={`${formId}.location`}
+                label={intl.formatMessage({ id: 'DemoWorkspace.locationLabel' })}
+                format={location => {
+                  const address = location?.selectedPlace?.address;
+                  return address
+                    ? demoProperties.find(p => address.startsWith(p.city))?.key || '__current'
+                    : '';
+                }}
+                parse={key => {
+                  const sample = demoProperties.find(p => p.key === key);
+                  if (key === '__current') return values.location;
+                  if (!sample) return null;
+                  const address = `${sample.city}, United States`;
+                  return {
+                    search: address,
+                    selectedPlace: { address, origin: new types.LatLng(sample.lat, sample.lng) },
+                    demoLocation: true,
+                  };
+                }}
+                validate={composeValidators(
+                  autocompleteSearchRequired(addressRequiredMessage),
+                  autocompletePlaceSelected(addressNotRecognizedMessage)
+                )}
+              >
+                <option value="">
+                  {intl.formatMessage({ id: 'DemoWorkspace.chooseLocation' })}
+                </option>
+                {values.location?.selectedPlace?.address &&
+                  !demoProperties.some(p =>
+                    values.location.selectedPlace.address.startsWith(p.city)
+                  ) && <option value="__current">{values.location.selectedPlace.address}</option>}
+                {demoProperties.map(p => (
+                  <option value={p.key} key={p.key}>
+                    {p.city}
+                  </option>
+                ))}
+              </FieldSelect>
+              <p className={css.demoHelp}>
+                <FormattedMessage id="DemoWorkspace.locationHelp" />
+              </p>
+            </>
+          ) : (
+            <FieldLocationAutocompleteInput
+              rootClassName={css.locationAddress}
+              inputClassName={css.locationAutocompleteInput}
+              iconClassName={css.locationAutocompleteInputIcon}
+              predictionsClassName={css.predictionsRoot}
+              validClassName={css.validLocation}
+              autoFocus={autoFocus}
+              name="location"
+              id={`${formId}.location`}
+              label={intl.formatMessage({ id: 'EditListingLocationForm.address' })}
+              placeholder={intl.formatMessage({
+                id: 'EditListingLocationForm.addressPlaceholder',
+              })}
+              useDefaultPredictions={false}
+              format={identity}
+              valueFromForm={values.location}
+              validate={composeValidators(
+                autocompleteSearchRequired(addressRequiredMessage),
+                autocompletePlaceSelected(addressNotRecognizedMessage)
+              )}
+            />
+          )}
 
           <FieldTextInput
             className={css.building}

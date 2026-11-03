@@ -213,6 +213,7 @@ export const getDerivedRenderData = ({
   const authorNeedsPayoutDetails =
     ['booking', 'purchase'].includes(processType) || (isNegotiation && unitType === OFFER);
   const noPayoutDetailsSetWithOwnListing =
+    process.env.REACT_APP_PROGRESS_PREVIEW !== 'true' &&
     isOwnListing && (authorNeedsPayoutDetails && !currentUser?.attributes?.stripeConnected);
 
   const payoutDetailsWarning = noPayoutDetailsSetWithOwnListing ? (

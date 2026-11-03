@@ -109,6 +109,7 @@ const PageBuilder = props => {
     options,
     currentPage,
     featuredListings,
+    mainContent,
     ...pageProps
   } = props;
 
@@ -138,7 +139,9 @@ const PageBuilder = props => {
                 <TopbarContainer currentPage={currentPage} />
               </Topbar>
               <Main as="main" id="main-content" className={css.main}>
-                {sections.length === 0 && inProgress ? (
+                {mainContent ? (
+                  mainContent
+                ) : sections.length === 0 && inProgress ? (
                   <LoadingSpinner />
                 ) : (
                   <SectionBuilder sections={sections} options={{ ...options, featuredListings }} />

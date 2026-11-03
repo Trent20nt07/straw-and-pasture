@@ -1,0 +1,373 @@
+@import '../../styles/customMediaQueries.css';
+.page {
+  background: #f7f5ee;
+  color: #244b30;
+  padding-bottom: 48px;
+}
+.header {
+  width: 100%;
+  min-width: 0;
+  max-width: 1168px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.backLink {
+  color: #607157;
+  font-size: 13px;
+}
+.eyebrow {
+  margin: 30px 0 12px;
+  color: #747e50;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.heading {
+  margin: 0;
+  max-width: 700px;
+  color: #244b30;
+  font: 38px/1.12 Georgia, serif;
+}
+.lede {
+  margin: 18px 0 0;
+  max-width: 640px;
+  color: #5e6c55;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.layout {
+  width: 100%;
+  min-width: 0;
+  max-width: 1168px;
+  margin: 0 auto 48px;
+  padding: 0 18px;
+}
+.sidebar {
+  min-width: 0;
+}
+.steps {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 8px 0;
+  list-style: none;
+  overflow-x: auto;
+}
+.step,
+.activeStep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #738168;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.activeStep {
+  color: #244b30;
+  font-weight: 700;
+}
+.stepNumber {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ced8c7;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+.activeStep .stepNumber {
+  color: #fffdf8;
+  background: #244b30;
+  border-color: #244b30;
+}
+.sideNote {
+  display: none;
+}
+.mobileNote {
+  color: #65715c;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 18px 0 0;
+}
+.noteTitle {
+  margin: 0 0 10px;
+  color: #244b30;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.noteText {
+  margin: 0;
+  color: #65715c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.form {
+  min-width: 0;
+  padding: 24px;
+  background: #fffdf8;
+  border: 1px solid #dde3d6;
+  border-radius: 14px;
+}
+.progress {
+  margin: 0 0 12px;
+  color: #798452;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.formTitle {
+  color: #244b30;
+  font: 29px/1.2 Georgia, serif;
+  margin: 0;
+  outline-offset: 5px;
+}
+.formIntro {
+  color: #64715a;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 16px 0 26px;
+}
+.field {
+  margin-bottom: 22px;
+}
+.label {
+  display: block;
+  color: #324d30;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.input {
+  width: 100%;
+  min-width: 0;
+  color: #244b30;
+  border: 1px solid #d7ddcf;
+  border-radius: 6px;
+  background: #fff;
+  padding: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.input:focus {
+  outline: 2px solid #9db489;
+  outline-offset: 2px;
+}
+.help {
+  margin: 8px 0 22px;
+  color: #6c7765;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.fieldset {
+  border: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  min-width: 0;
+}
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.option {
+  padding: 14px;
+  border: 1px solid #dce2d4;
+  border-radius: 6px;
+  background: #f8f9f3;
+}
+.actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 30px;
+}
+.primaryButton {
+  flex: 1;
+  min-height: 48px;
+  border: 0;
+  border-radius: 6px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #244b30;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.backButton,
+.saveButton {
+  border: 0;
+  background: transparent;
+  color: #4e6345;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 14px 0;
+}
+.saveButton {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.primaryButton:focus-visible,
+.backButton:focus-visible,
+.saveButton:focus-visible {
+  outline: 3px solid #bd9a42;
+  outline-offset: 4px;
+}
+.saved {
+  padding: 14px;
+  color: #244b30;
+  background: #edf3e6;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.error {
+  color: #a12525;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.previewCard {
+  border: 1px solid #dce2d6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.photoPlaceholder {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  background: #e9eee2;
+  color: #73815e;
+  font-size: 12px;
+  text-align: center;
+}
+.photoIcon {
+  font-size: 36px;
+  line-height: 1;
+}
+.previewBody {
+  padding: 22px;
+}
+.draftBadge {
+  display: inline-block;
+  background: #f1e4b8;
+  color: #6d5c26;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+.previewTitle {
+  margin: 14px 0 8px;
+  color: #244b30;
+  font: 28px/1.2 Georgia, serif;
+  overflow-wrap: anywhere;
+}
+.previewTown {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #6a765e;
+  overflow-wrap: anywhere;
+}
+.previewPrice {
+  color: #244b30;
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 0 0 24px;
+  font-weight: 600;
+}
+.priceUnit {
+  font-size: 13px;
+  color: #7a846b;
+  font-weight: 400;
+}
+.details {
+  display: grid;
+  gap: 16px;
+  margin: 0 0 24px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.detail {
+  min-width: 0;
+}
+.detailLabel {
+  color: #7b846d;
+  font-size: 11px;
+}
+.detailValue {
+  color: #244b30;
+  font-size: 14px;
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+.previewDescription {
+  color: #5b6852;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.readyNote {
+  margin-top: 22px;
+  padding: 20px;
+  background: #f3f1e8;
+  border-radius: 8px;
+}
+@media (--viewportMedium) {
+  .mobileNote {
+    display: none;
+  }
+  .header {
+    padding: 48px 32px 40px;
+  }
+  .heading {
+    font-size: 52px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 40px;
+    padding: 0 32px;
+  }
+  .steps {
+    flex-direction: column;
+    gap: 20px;
+    overflow: visible;
+  }
+  .step,
+  .activeStep {
+    font-size: 14px;
+    gap: 14px;
+  }
+  .stepNumber {
+    height: 34px;
+    width: 34px;
+  }
+  .sideNote {
+    display: block;
+    margin-top: 40px;
+    border-top: 1px solid #dbe0d0;
+    padding-top: 24px;
+  }
+  .form {
+    padding: 36px;
+  }
+  .options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .primaryButton {
+    flex: 0 1 250px;
+    margin-left: auto;
+  }
+}

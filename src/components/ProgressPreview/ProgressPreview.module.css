@@ -1,0 +1,42 @@
+.previewContent {
+  padding-bottom: 48px;
+}
+.notice {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 9px 16px;
+  background: #244b30;
+  color: #fffdf7;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: 0 -1px 8px #0002;
+}
+.noticeLink {
+  color: #f3d88c;
+  text-decoration: underline;
+}
+.noticeLink:hover {
+  color: white;
+}
+.gate {
+  min-height: 100vh;
+  padding: 12vh max(24px, calc((100vw - 700px) / 2));
+  background: #f7f5ed;
+  color: #244b30;
+}
+.brand {
+  font-family: Georgia, serif;
+  font-size: 24px;
+}
+.link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+  border-radius: 6px;
+  background: #244b30;
+  color: #fffdf7;
+}

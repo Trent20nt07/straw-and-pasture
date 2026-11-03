@@ -1,3 +1,4 @@
+import { loadData as MemberDashboardLoader } from './MemberDashboardPage/MemberDashboardPage.duck';
 /**
  * Export loadData calls from ducks modules of different containers
  */
@@ -26,6 +27,7 @@ import {
 
 const getPageDataLoadingAPI = () => {
   return {
+    MemberDashboardPage: { loadData: MemberDashboardLoader },
     AuthenticationPage: {
       loadData: AuthenticationPageLoader,
     },

@@ -9,6 +9,7 @@ import { useIntl } from '../../util/reactIntl';
 import { requireListingImage } from '../../util/configHelpers';
 import { lazyLoadWithDimensions } from '../../util/uiHelpers';
 import { createSlug } from '../../util/urlHelpers';
+import { isDemoListing } from '../../util/demoProperties';
 
 import {
   AspectRatioWrapper,
@@ -16,6 +17,8 @@ import {
   ResponsiveImage,
   ListingCardThumbnail,
 } from '../../components';
+
+import BoardingDetails from '../BoardingDetails/BoardingDetails';
 
 import { getListingCardTranslations } from './ListingCard.helpers';
 
@@ -109,6 +112,7 @@ export const ListingCard = props => {
     setActiveListing,
     showAuthorInfo = true,
     lazyLoadImage = true,
+    showBoardingDetails = false,
   } = props;
 
   const translations = getListingCardTranslations(listing, config, intl);
@@ -122,7 +126,9 @@ export const ListingCard = props => {
     authorName,
   } = translations;
 
-  const classes = classNames(rootClassName || css.root, className);
+  const classes = classNames(rootClassName || css.root, className, {
+    [css.boardingCard]: showBoardingDetails,
+  });
 
   const id = listing?.id?.uuid;
   const { title = '', publicData } = listing?.attributes || {};
@@ -178,6 +184,11 @@ export const ListingCard = props => {
         />
       )}
       <div className={css.info}>
+        {isDemoListing(listing) && (
+          <span className={css.demoBadge}>
+            {intl.formatMessage({ id: 'DemoWorkspace.sample' })}
+          </span>
+        )}
         {showPrice ? (
           <div className={css.price} title={priceTooltip}>
             {priceMessage}
@@ -195,6 +206,7 @@ export const ListingCard = props => {
             </div>
           ) : null}
         </div>
+        {showBoardingDetails && <BoardingDetails publicData={publicData} compact />}
       </div>
     </NamedLink>
   );

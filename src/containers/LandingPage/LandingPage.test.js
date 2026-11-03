@@ -1,13 +1,34 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import { renderWithProviders as render, testingLibrary } from '../../util/testHelpers';
+import { renderWithProviders as providerRender, testingLibrary } from '../../util/testHelpers';
 
 import { LandingPageComponent } from './LandingPage';
+import messages from '../../translations/en.json';
+const render = (ui, options = {}) => providerRender(ui, { ...options, messages });
 
 const { waitFor } = testingLibrary;
 
 describe('LandingPage', () => {
+  beforeEach(() => sessionStorage.setItem('straw-pasture-intro-seen-v1', '1'));
+  afterEach(() => sessionStorage.clear());
+  it('skips the entrance for reduced-motion visitors', () => {
+    sessionStorage.clear();
+    const previous = window.matchMedia;
+    window.matchMedia = () => ({ matches: true });
+    const { queryByRole } = render(<LandingPageComponent inProgress={false} />);
+    expect(queryByRole('dialog')).not.toBeInTheDocument();
+    expect(sessionStorage.getItem('straw-pasture-intro-seen-v1')).toBe('1');
+    window.matchMedia = previous;
+  });
+  it('shows the entrance on a first visit and remembers dismissal', () => {
+    sessionStorage.clear();
+    const { getByRole, queryByRole } = render(<LandingPageComponent inProgress={false} />);
+    expect(getByRole('dialog')).toBeInTheDocument();
+    testingLibrary.fireEvent.click(getByRole('button', { name: /Skip intro/ }));
+    expect(queryByRole('dialog')).not.toBeInTheDocument();
+    expect(sessionStorage.getItem('straw-pasture-intro-seen-v1')).toBe('1');
+  });
   it('renders the Fallback page on error', async () => {
     const errorMessage = 'LandingPage failed';
     let e = new Error(errorMessage);
@@ -24,7 +45,7 @@ describe('LandingPage', () => {
     });
   });
 
-  it('renders given pageAssetsData', async () => {
+  it('renders one branded homepage without duplicating hosted sections', async () => {
     const data = {
       sections: [
         {
@@ -51,7 +72,7 @@ describe('LandingPage', () => {
       ],
     };
 
-    const { getByText } = render(
+    const { getByRole, queryByText } = render(
       <LandingPageComponent
         pageAssetsData={{ landingPage: { data } }}
         inProgress={false}
@@ -60,11 +81,10 @@ describe('LandingPage', () => {
     );
 
     await waitFor(() => {
-      // Expect following texts to be found from rendered UI (inside <body>)
-      expect(getByText('Landing page')).toBeInTheDocument();
-      expect(getByText('This is the description of the section')).toBeInTheDocument();
-      expect(getByText('Block title here')).toBeInTheDocument();
-      expect(getByText('Lorem ipsum')).toBeInTheDocument();
+      expect(
+        getByRole('heading', { level: 1, name: 'Access agriculture. Anywhere.' })
+      ).toBeInTheDocument();
+      expect(queryByText('Block title here')).not.toBeInTheDocument();
     });
   });
 });

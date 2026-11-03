@@ -23,11 +23,29 @@ const SectionMapMaybe = props => {
   const intl = useIntl();
   const { className, rootClassName, geolocation, publicData, listingId, mapsConfig } = props;
 
-  if (!geolocation) {
-    return null;
+  const address = publicData?.location?.address || '';
+  const fuzzy = mapsConfig?.fuzzy?.enabled;
+  const hasMapAccess =
+    mapsConfig?.mapProvider === 'googleMaps'
+      ? !!mapsConfig?.googleMapsAPIKey
+      : !!mapsConfig?.mapboxAccessToken;
+  if (!geolocation || !hasMapAccess) {
+    if (!address) return null;
+    return (
+      <section className={classNames(css.locationFallback, className)} id="listing-location">
+        <Heading as="h2" rootClassName={css.sectionHeadingWithExtraMargin}>
+          <FormattedMessage id="ListingPage.locationTitle" />
+        </Heading>
+        <p className={css.locationAddress}>
+          {fuzzy ? <FormattedMessage id="StrawPasture.locationPrivate" /> : address}
+        </p>
+        <p className={css.locationHelp}>
+          <FormattedMessage id="StrawPasture.locationConfirm" />
+        </p>
+      </section>
+    );
   }
 
-  const address = publicData && publicData.location ? publicData.location.address : '';
   const classes = classNames(rootClassName || css.sectionMap, className);
   const cacheKey = listingId ? `${listingId.uuid}_${geolocation.lat}_${geolocation.lng}` : null;
 

@@ -438,6 +438,24 @@ const OrderPanel = props => {
   const classes = classNames(rootClassName || css.root, className);
   const titleClasses = classNames(titleClassName || css.orderTitle);
 
+  if (process.env.REACT_APP_PROGRESS_PREVIEW === 'true') {
+    return (
+      <div className={classes}>
+        {titleDesktop || <h1 className={titleClasses}>{title}</h1>}
+        <PriceMaybe
+          price={price}
+          publicData={publicData}
+          marketplaceCurrency={marketplaceCurrency}
+          validListingTypes={validListingTypes}
+          intl={intl}
+        />
+        <p>
+          <FormattedMessage id="StrawPasture.previewDetails" />
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={classes}>
       <ModalInMobile

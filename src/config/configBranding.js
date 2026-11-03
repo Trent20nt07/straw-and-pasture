@@ -18,7 +18,11 @@ import twitterImage from '../assets/biketribe-twitter-sharing-600x314.jpg';
 // This is saved as CSS Property: --marketplaceColor in src/app.js
 // Also --marketplaceColorDark and --marketplaceColorLight are generated from this one
 // by adding +/- 10% to lightness.
-export const marketplaceColor = '#7c3aed';
+export const marketplaceColor = '#244b30';
+export const colorPrimaryButton = '#244b30';
+// Keep the prototype palette reviewable on the feature branch. Hosted logos and
+// other branding assets are still managed in Console. Set false to use hosted colors.
+export const useLocalColors = true;
 
 // Logo is used in Topbar on mobile and desktop, where height is the limiting factor.
 // Therefore, we strongly suggest that your image file for desktop logo is in landscape!
