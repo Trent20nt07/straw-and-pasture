@@ -1694,5 +1694,17 @@
   "UserNav.accountSettings": "Account settings",
   "UserNav.profileSettings": "Profile settings",
   "UserNav.screenreader.userNav": "User profile navigation",
-  "UserNav.yourListings": "Your listings"
+  "UserNav.yourListings": "Your listings",
+  "WelcomePage.browse": "Find boarding",
+  "WelcomePage.description": "Find a place for your animals. Make room for a new connection. Welcome to Straw & Pasture.",
+  "WelcomePage.enter": "Enter Straw & Pasture",
+  "WelcomePage.eyebrow": "Boarding for horses & cattle",
+  "WelcomePage.footerLabel": "For animals and their people",
+  "WelcomePage.footerText": "Good spaces. Shared possibilities.",
+  "WelcomePage.headline": "A little more room",
+  "WelcomePage.headlineAccent": "to roam.",
+  "WelcomePage.host": "Have space to share?",
+  "WelcomePage.photoNote": "Decorative pasture photograph · Not a listed property",
+  "WelcomePage.signIn": "Sign in",
+  "WelcomePage.title": "Welcome | Straw & Pasture"
 }

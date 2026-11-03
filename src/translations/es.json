@@ -1694,5 +1694,17 @@
   "UserNav.accountSettings": "Configuración de la cuenta",
   "UserNav.profileSettings": "Configuración de perfil",
   "UserNav.screenreader.userNav": "Navegación de perfil de usuario",
-  "UserNav.yourListings": "Tus anuncios"
+  "UserNav.yourListings": "Tus anuncios",
+  "WelcomePage.browse": "Buscar alojamiento",
+  "WelcomePage.description": "Encuentra un lugar para tus animales. Abre espacio para nuevas conexiones. Bienvenido a Straw & Pasture.",
+  "WelcomePage.enter": "Entrar a Straw & Pasture",
+  "WelcomePage.eyebrow": "Alojamiento para caballos y ganado",
+  "WelcomePage.footerLabel": "Para los animales y sus personas",
+  "WelcomePage.footerText": "Buenos espacios. Posibilidades compartidas.",
+  "WelcomePage.headline": "Un poco más de espacio",
+  "WelcomePage.headlineAccent": "para explorar.",
+  "WelcomePage.host": "¿Tienes espacio para compartir?",
+  "WelcomePage.photoNote": "Fotografía decorativa de pastos · No es una propiedad anunciada",
+  "WelcomePage.signIn": "Iniciar sesión",
+  "WelcomePage.title": "Bienvenido | Straw & Pasture"
 }

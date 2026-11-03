@@ -1694,5 +1694,17 @@
   "UserNav.accountSettings": "Kontoeinstellungen",
   "UserNav.profileSettings": "Profileinstellungen",
   "UserNav.screenreader.userNav": "Navigation zum Nutzerprofil",
-  "UserNav.yourListings": "Deine Einträge"
+  "UserNav.yourListings": "Deine Einträge",
+  "WelcomePage.browse": "Unterbringung finden",
+  "WelcomePage.description": "Finden Sie einen Platz für Ihre Tiere. Schaffen Sie Raum für neue Kontakte. Willkommen bei Straw & Pasture.",
+  "WelcomePage.enter": "Straw & Pasture öffnen",
+  "WelcomePage.eyebrow": "Unterbringung für Pferde und Rinder",
+  "WelcomePage.footerLabel": "Für Tiere und ihre Menschen",
+  "WelcomePage.footerText": "Gute Plätze. Gemeinsame Möglichkeiten.",
+  "WelcomePage.headline": "Ein bisschen mehr Platz",
+  "WelcomePage.headlineAccent": "zum Entdecken.",
+  "WelcomePage.host": "Haben Sie Platz zu teilen?",
+  "WelcomePage.photoNote": "Dekoratives Weidefoto · Kein angebotenes Grundstück",
+  "WelcomePage.signIn": "Anmelden",
+  "WelcomePage.title": "Willkommen | Straw & Pasture"
 }

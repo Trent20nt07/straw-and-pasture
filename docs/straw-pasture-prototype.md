@@ -114,3 +114,13 @@ ownership, exact blockers, and handoff checklist.
 Decorative hero: Camille Perry, Unsplash, “A group of horses grazing on a lush green field.”
 https://unsplash.com/photos/a-group-of-horses-grazing-on-a-lush-green-field-8Xw3Ipzmk4I
 Free under the Unsplash License at retrieval. This is a mood image, not a listed property.
+
+## Custom welcome entrance
+
+`/welcome` is a dedicated, shareable splash page with the existing pasture photograph,
+Chloe's hosted logo, forest-green and cream styling, and a reduced-motion-aware entrance.
+Its links open the homepage, search, listing creation, and sign-in immediately; no
+timer or repeat-visit interstitial blocks existing page links. The photograph remains
+explicitly decorative. The route works in both the preview and normal app builds.
+
+The pending marketplace walkthrough is retained in [testing-walkthrough.md](testing-walkthrough.md).

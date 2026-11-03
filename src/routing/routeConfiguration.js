@@ -11,6 +11,7 @@ import PreviewResolverPage from '../containers/PreviewResolverPage/PreviewResolv
 import { NamedRedirect } from '../components';
 
 const pageDataLoadingAPI = getPageDataLoadingAPI();
+const WelcomePage = loadable(() => import(/* webpackChunkName: "WelcomePage" */ '../containers/WelcomePage/WelcomePage'));
 
 const AuthenticationPage = loadable(() => import(/* webpackChunkName: "AuthenticationPage" */ '../containers/AuthenticationPage/AuthenticationPage'));
 const CheckoutPage = loadable(() => import(/* webpackChunkName: "CheckoutPage" */ '../containers/CheckoutPage/CheckoutPage'));
@@ -76,6 +77,7 @@ const routeConfiguration = (layoutConfig, accessControlConfig) => {
   const authForPrivateMarketplace = isPrivateMarketplace ? { auth: true } : {};
   
   return [
+    { path: '/welcome', name: 'WelcomePage', component: WelcomePage },
     {
       path: '/',
       name: 'LandingPage',

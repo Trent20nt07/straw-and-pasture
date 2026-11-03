@@ -1694,5 +1694,17 @@
   "UserNav.accountSettings": "Réglages",
   "UserNav.profileSettings": "Profil",
   "UserNav.screenreader.userNav": "Navigation du profil utilisateur",
-  "UserNav.yourListings": "Mes annonces"
+  "UserNav.yourListings": "Mes annonces",
+  "WelcomePage.browse": "Trouver une pension",
+  "WelcomePage.description": "Trouvez une place pour vos animaux. Faites de la place pour de nouvelles rencontres. Bienvenue chez Straw & Pasture.",
+  "WelcomePage.enter": "Entrer dans Straw & Pasture",
+  "WelcomePage.eyebrow": "Pension pour chevaux et bovins",
+  "WelcomePage.footerLabel": "Pour les animaux et leurs propriétaires",
+  "WelcomePage.footerText": "De beaux espaces. Des possibilités partagées.",
+  "WelcomePage.headline": "Un peu plus d’espace",
+  "WelcomePage.headlineAccent": "pour se retrouver.",
+  "WelcomePage.host": "Un espace à partager ?",
+  "WelcomePage.photoNote": "Photographie décorative de pâturage · Aucun bien proposé",
+  "WelcomePage.signIn": "Se connecter",
+  "WelcomePage.title": "Bienvenue | Straw & Pasture"
 }

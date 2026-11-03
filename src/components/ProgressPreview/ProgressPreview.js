@@ -12,6 +12,7 @@ export const isProgressPreview = process.env.REACT_APP_PROGRESS_PREVIEW === 'tru
 
 export const isPreviewPath = pathname =>
   pathname === '/' ||
+  pathname === '/welcome' ||
   pathname === '/s' ||
   /^\/s\//.test(pathname) ||
   /^\/l\/[^/]+\/[0-9a-f-]{36}\/?$/i.test(pathname) ||

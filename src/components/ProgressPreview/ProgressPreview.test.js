@@ -3,6 +3,7 @@ const id = '6ae8a7d4-f94a-4562-8be8-d52791ceed25';
 describe('Test progress preview routes', () => {
   it.each([
     '/',
+    '/welcome',
     '/s',
     '/s/animal-boarding',
     `/l/oak-creek/${id}`,
