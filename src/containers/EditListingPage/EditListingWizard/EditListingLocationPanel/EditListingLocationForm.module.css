@@ -18,6 +18,12 @@
 .error {
   color: var(--colorFail);
 }
+.demoHelp {
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #65715c;
+}
 
 .locationAutocompleteInput {
 }

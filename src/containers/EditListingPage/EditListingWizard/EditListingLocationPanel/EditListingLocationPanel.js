@@ -109,6 +109,7 @@ const EditListingLocationPanel = props => {
             geolocation: origin,
             publicData: {
               location: { address, building },
+              ...(location.demoLocation ? { demoListing: true } : {}),
             },
           };
           // Save the initialValues to state

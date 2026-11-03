@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+      <defs><clipPath id="art"><rect width="1200" height="654"/></clipPath>
+      <pattern id="grain" width="27" height="23" patternUnits="userSpaceOnUse"><circle cx="4" cy="7" r=".8" fill="#fff" opacity=".18"/><circle cx="18" cy="19" r=".7" fill="#244b30" opacity=".08"/></pattern></defs>
+      <rect width="1200" height="800" fill="#f7f4e9"/>
+      <g clip-path="url(#art)"><rect width="1200" height="654" fill="#e9e4cc"/><circle cx="277" cy="150" r="60" fill="#d4b369"/><path d="M0 302C270 276 475 335 715 302S1035 283 1200 315V654H0Z" fill="#aeb68d"/><path d="M0 455C282 386 506 445 777 405S1030 420 1200 466V654H0Z" fill="#8c9c65"/><path d="M610 426C705 476 750 551 898 654H1162C943 553 828 461 732 426Z" fill="#d4c59a"/><g transform="translate(1040 413) scale(1.06)"><path d="M-9 5H9V-142H-9Z" fill="#64563a"/><path d="M0-250 75-105H42L96-35H-96L-42-105H-75Z" fill="#536f48"/><path d="M0-240V-42L-57-42-25-106H-47Z" fill="#203e31" opacity=".25"/></g><g transform="translate(1137 433) scale(0.85)"><path d="M-9 5H9V-142H-9Z" fill="#64563a"/><path d="M0-250 75-105H42L96-35H-96L-42-105H-75Z" fill="#6c7f4e"/><path d="M0-240V-42L-57-42-25-106H-47Z" fill="#203e31" opacity=".25"/></g><g transform="translate(634 456) scale(0.96)">
+      <path d="M-195.0-190 0-290 195.0-190V0H-195.0Z" fill="#d2bf92"/>
+      <path d="M-220.0-183 0-307 220.0-183 206.0-166 0-278 -206.0-166Z" fill="#355343"/>
+      <path d="M-187.0-181H187.0" stroke="#f0dfb7" stroke-width="7"/>
+      <path d="M-177.0-170V-2M-149.0-170V-2M177.0-170V-2M149.0-170V-2" stroke="#b7a47d" stroke-width="3"/>
+      <path d="M-56-132H56V0H-56Z" fill="#3e5842"/>
+      <path d="M-56-132H56V0H-56ZM0-132V0M-53-127 52-4M53-127-52-4" stroke="#f0dfb7" stroke-width="7" fill="none"/>
+      <path d="M-27-229H27V-190H-27Z" fill="#46634b"/>
+      <path d="M-27-229H27V-190H-27ZM0-228V-191" stroke="#f0dfb7" stroke-width="5" fill="none"/>
+      <path d="M-183.0 0H207.0" stroke="#887e5a" stroke-width="6"/>
+    </g><g transform="translate(355 552) scale(0.95 0.95)">
+      <ellipse cx="-16" cy="-11" rx="75" ry="12" fill="#244b30" opacity=".15"/>
+      <path d="M-65-79C-93-72-95-37-110-30-104-57-101-88-76-95" fill="#4d4935"/>
+      <path d="M-65-92C-45-105 1-99 24-92L51-146 66-169 84-167 91-153 111-141 108-124 89-122 76-132 67-106 54-69 48-17H35L35-63 10-66-7-18H-20L-8-76-38-75-53-16H-67L-58-73-72-56-81-18H-94L-83-77Z" fill="#a78151"/>
+      <path d="M23-92 48-148 65-172 74-171 60-145 45-90Z" fill="#4d4935"/>
+      <path d="M70-166 70-183 79-169M82-166 88-180 91-158" fill="#a78151"/>
+      <path d="M-94-18H-81V-11H-96ZM-67-16H-53V-9H-69ZM-20-18H-7V-11H-22ZM35-17H48V-10H34Z" fill="#4d4935"/>
+      <circle cx="90" cy="-149" r="2.4" fill="#223b2b"/>
+      <path d="M-51-86C-30-91-6-88 8-84" stroke="#f2dfb6" stroke-width="5" stroke-linecap="round" fill="none" opacity=".6"/>
+    </g><g stroke="#efe3c5" stroke-linecap="square" fill="none"><path d="M-20 601L475 557" stroke-width="10"/><path d="M-20 575L475 531" stroke-width="10"/><path d="M-20.0 625.0V546.0" stroke-width="12"/><path d="M103.75 614.0V535.0" stroke-width="12"/><path d="M227.5 603.0V524.0" stroke-width="12"/><path d="M351.25 592.0V513.0" stroke-width="12"/><path d="M475.0 581.0V502.0" stroke-width="12"/></g><g stroke="#efe3c5" stroke-linecap="square" fill="none"><path d="M892 507L1235 561" stroke-width="10"/><path d="M892 481L1235 535" stroke-width="10"/><path d="M892.0 531.0V452.0" stroke-width="12"/><path d="M1006.3333333333334 549.0V470.0" stroke-width="12"/><path d="M1120.6666666666667 567.0V488.0" stroke-width="12"/><path d="M1235.0 585.0V506.0" stroke-width="12"/></g><g fill="none" stroke="#617342" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M140 533l-4-8m4 8 5-6"/><path d="M764 553l-4-11m4 11 5-9"/><path d="M540 564l-4-7m4 7 5-5"/><path d="M349 620l-4-13m4 13 5-11"/><path d="M1067 605l-4-15m4 15 5-13"/><path d="M936 638l-4-11m4 11 5-9"/><path d="M98 517l-4-12m4 12 5-10"/><path d="M977 591l-4-13m4 13 5-11"/><path d="M892 644l-4-9m4 9 5-7"/><path d="M388 570l-4-10m4 10 5-8"/><path d="M73 555l-4-12m4 12 5-10"/><path d="M380 544l-4-15m4 15 5-13"/><path d="M1069 602l-4-15m4 15 5-13"/><path d="M397 624l-4-13m4 13 5-11"/><path d="M1100 603l-4-12m4 12 5-10"/><path d="M766 624l-4-9m4 9 5-7"/><path d="M843 628l-4-15m4 15 5-13"/><path d="M536 635l-4-11m4 11 5-9"/><path d="M1045 638l-4-15m4 15 5-13"/><path d="M749 626l-4-14m4 14 5-12"/><path d="M743 626l-4-14m4 14 5-12"/><path d="M479 593l-4-9m4 9 5-7"/><path d="M574 632l-4-11m4 11 5-9"/><path d="M646 639l-4-15m4 15 5-13"/><path d="M1085 639l-4-13m4 13 5-11"/><path d="M663 563l-4-14m4 14 5-12"/><path d="M1073 603l-4-8m4 8 5-6"/><path d="M724 512l-4-10m4 10 5-8"/><path d="M242 525l-4-7m4 7 5-5"/><path d="M584 568l-4-8m4 8 5-6"/><path d="M1094 544l-4-11m4 11 5-9"/><path d="M526 563l-4-7m4 7 5-5"/></g><rect width="1200" height="654" fill="url(#grain)"/></g>
+      <g transform="translate(40 38)"><rect width="270" height="48" rx="24" fill="#244b30"/><circle cx="26" cy="24" r="5" fill="#d7b86c"/><text x="45" y="31" font-family="DejaVu Sans,sans-serif" font-size="18" font-weight="700" letter-spacing="1.8" fill="#fff9e7">DEMO PROPERTY</text></g>
+      <path d="M40 654H1160" stroke="#d6d6bc"/>
+      <text x="40" y="692" font-family="DejaVu Sans,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#778059">BARN STALLS · HORSE BOARDING</text>
+      <text x="40" y="739" font-family="DejaVu Serif,serif" font-size="37" fill="#244b30">Cedar Rail Stables</text>
+      <text x="40" y="776" font-family="DejaVu Sans,sans-serif" font-size="20" fill="#68725b">Illustration · Not an available property</text>
+      <g transform="translate(1110 730)" fill="none" stroke="#9a9c70" stroke-width="3"><circle r="39"/><path d="M-20 16 0-27 20 16M-15 6H15M-20 16H20M0-27V27"/><path d="M-14 27H14"/></g>
+    </svg>

@@ -9,6 +9,7 @@ import { useIntl } from '../../util/reactIntl';
 import { requireListingImage } from '../../util/configHelpers';
 import { lazyLoadWithDimensions } from '../../util/uiHelpers';
 import { createSlug } from '../../util/urlHelpers';
+import { isDemoListing } from '../../util/demoProperties';
 
 import {
   AspectRatioWrapper,
@@ -183,6 +184,11 @@ export const ListingCard = props => {
         />
       )}
       <div className={css.info}>
+        {isDemoListing(listing) && (
+          <span className={css.demoBadge}>
+            {intl.formatMessage({ id: 'DemoWorkspace.sample' })}
+          </span>
+        )}
         {showPrice ? (
           <div className={css.price} title={priceTooltip}>
             {priceMessage}

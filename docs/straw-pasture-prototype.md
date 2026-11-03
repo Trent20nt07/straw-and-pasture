@@ -9,7 +9,7 @@ remain unchanged.
 - Responsive boarding homepage following Chloe's forest-green, cream, and gold design direction.
 - Search uses the existing Sharetribe route, real published listings, configured filters, and native price units.
 - Horse/Cattle shortcuts use real field IDs and option values only when a public enum or multi-enum animal filter is enabled in Console. Otherwise those cards remain informational and the separate “View all boarding” link opens search.
-- Recent properties load through a page-level Redux thunk and the Marketplace SDK (including normal access control). Loading, empty, and error states are explicit; no demo inventory is mixed with real listings.
+- Recent properties load through a page-level Redux thunk and the Marketplace SDK (including normal access control). Loading, empty, and error states are explicit; only saved Sharetribe Test records appear in search; demo records are visibly labeled.
 - Search cards show only recognized, configured public boarding fields. Missing feeding/cleaning data is not interpreted as “not included.”
 - Authentication, listing creation, conversations, galleries, native pricing, filters, sorting, and transactions retain their existing paths.
 - Card layout changes are scoped so the existing featured-listing carousel keeps its original dimensions.
@@ -78,7 +78,7 @@ transaction and payment setup.
 
 Preview URL: https://straw-pasture-progress.tre20nt07.chatgpt.site
 
-`node scripts/build-progress-preview.js` builds a static browsing preview in `dist/`,
+`node scripts/build-progress-preview.js` builds a static Test marketplace preview in `dist/`,
 using the public Sharetribe **Test** application ID in `scripts/progress-preview.config.json`.
 It adds the production bundle entrypoints to the static HTML shell, requests no indexing,
 and packages the frontend assets without server files or source maps. Sites identity is
@@ -86,14 +86,28 @@ tracked in `.openai/hosting.json`; GitHub development remains on the feature bra
 The hosting manifest enables the native single-page-app fallback for direct page URLs;
 no wildcard rewrite intercepts bundle or stylesheet requests.
 
-Only this build enables `REACT_APP_PROGRESS_PREVIEW=true`: a visible preview label,
-browsing-only route gate, and listing price/details in place of transaction forms.
-Homepage, search, filters, listing details, and public profiles use actual Test data.
-At `/l/new`, owners can prepare and explicitly save an unpublished draft on their device.
-Only bounded text and configured option values are stored; no photos, accounts, or server
-records are created. Drafts do not sync between devices and may be lost if browser data is cleared.
-Accounts, listing publication, messaging, and bookings are unavailable in the public preview.
+Only this build enables `REACT_APP_PROGRESS_PREVIEW=true`: a visible Test label,
+a route gate for unsupported server/payment operations, and listing price/details
+in place of checkout forms. Native email/password accounts, listing creation,
+availability, inquiries, and inbox routes are now enabled. These new flows require
+an authenticated two-account browser verification; the browser connection failed
+during this development pass.
+
+At `/demo`, six clearly labeled fictional property templates and original illustrations
+are ready to inspect. A designated-host importer resumes the partial Console draft,
+creates missing Test samples, uploads images, and publishes only after image success.
+It does not edit unrelated inventory. Import completion has not been verified.
+
+At `/l/new`, owners use the existing authenticated Sharetribe listing wizard.
+When no map provider is configured, the preview offers clearly labeled demo city
+locations and labels resulting records as demos. Existing locations are retained.
+At `/prepare-property`, the earlier browser-local four-step draft remains available.
+These local drafts do not sync between devices or automatically publish.
+
 The normal app build retains the existing Express backend and full marketplace flows.
+Checkout, payouts, account deletion, and social authentication remain gated in the
+static preview. See [launch-readiness.md](launch-readiness.md) for the stack, account
+ownership, exact blockers, and handoff checklist.
 
 ## Photo
 

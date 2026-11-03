@@ -1,6 +1,6 @@
 'use strict';
 
-// The public preview is a static, browsing-only build. The normal Express build
+// The public preview is a static Test marketplace build. The normal Express build
 // and transaction endpoints are preserved for the complete marketplace.
 const fs = require('fs');
 const path = require('path');
@@ -17,6 +17,7 @@ execFileSync(process.execPath, ['scripts/build.js'], {
     GENERATE_SOURCEMAP: 'false',
     REACT_APP_PROGRESS_PREVIEW: 'true',
     REACT_APP_ENV: 'test',
+    REACT_APP_SHARETRIBE_USING_SSL: 'true',
     REACT_APP_MARKETPLACE_ROOT_URL: config.url,
     REACT_APP_SHARETRIBE_SDK_CLIENT_ID: config.clientId,
     REACT_APP_MARKETPLACE_NAME: 'Straw & Pasture',
@@ -48,4 +49,4 @@ fs.writeFileSync(path.join(output, 'index.html'), html);
 fs.writeFileSync(path.join(output, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 // Sites serves unknown page paths through its SPA fallback. A wildcard rewrite
 // would also intercept real JavaScript and CSS assets on the public host.
-console.log('Packaged the browsing preview in dist/.');
+console.log('Packaged the Test marketplace preview in dist/.');

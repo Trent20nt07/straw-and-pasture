@@ -8,6 +8,7 @@ import { FormattedMessage } from '../../util/reactIntl';
 import { LISTING_STATE_CLOSED, propTypes } from '../../util/types';
 import { OFFER, REQUEST } from '../../transactions/transaction';
 import { getBoardingDetails } from '../../util/strawPasture';
+import { isDemoListing } from '../../util/demoProperties';
 
 // Global ducks (for Redux actions and thunks)
 import { getMarketplaceEntities } from '../../ducks/marketplaceData.duck';
@@ -263,6 +264,11 @@ export const ListingPageComponent = props => {
               <FormattedMessage id="StrawPasture.propertyDetails" />
             </p>
             <h1 className={css.boardingTitle}>{richTitle}</h1>
+            {isDemoListing(currentListing) && (
+              <p className={css.demoNotice}>
+                <FormattedMessage id="DemoWorkspace.listingNotice" />
+              </p>
+            )}
             {locationLabel && <p className={css.boardingLocation}>{locationLabel}</p>}
           </header>
         )}
