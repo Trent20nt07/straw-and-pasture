@@ -69,6 +69,14 @@ const LogoReveal = ({ onComplete }) => {
             >
               <rect width="1181" height="1181" fill="white" />
               <path d={PIN} fill="black" />
+              {/* Hide the curved URL while preserving the original gold artwork. */}
+              <path
+                d="M1094 610 A505 505 0 0 1 735 1077"
+                fill="none"
+                stroke="black"
+                strokeWidth="80"
+                strokeLinecap="round"
+              />
             </mask>
           </defs>
           <g className={css.circle} clipPath={`url(#${id}-disc)`}>
