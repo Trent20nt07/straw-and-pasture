@@ -59,13 +59,13 @@ it('requires the designated authenticated Test host', async () => {
   await expect(importDemoProperties(options)).rejects.toThrow('demo-host');
   expect(sdk.ownListings.query).not.toHaveBeenCalled();
 });
-it('creates six labeled Test records with images and availability without duplicating them on rerun', async () => {
+it('creates eight labeled Test records with images and availability without duplicating them on rerun', async () => {
   const { sdk, options, records } = fixture();
-  await expect(importDemoProperties(options)).resolves.toHaveLength(6);
-  await expect(importDemoProperties(options)).resolves.toHaveLength(6);
-  expect(sdk.ownListings.createDraft).toHaveBeenCalledTimes(6);
-  expect(sdk.ownListings.publishDraft).toHaveBeenCalledTimes(6);
-  expect(sdk.images.upload).toHaveBeenCalledTimes(6);
+  await expect(importDemoProperties(options)).resolves.toHaveLength(8);
+  await expect(importDemoProperties(options)).resolves.toHaveLength(8);
+  expect(sdk.ownListings.createDraft).toHaveBeenCalledTimes(8);
+  expect(sdk.ownListings.publishDraft).toHaveBeenCalledTimes(8);
+  expect(sdk.images.upload).toHaveBeenCalledTimes(8);
   records.forEach(l => {
     expect(l.attributes.title).toMatch(/^Demo · /);
     expect(l.attributes.publicData.demoListing).toBe(true);
@@ -83,8 +83,8 @@ it('resumes the existing Console draft and preserves its uploaded image', async 
   };
   const { sdk, options } = fixture([listing]);
   await importDemoProperties(options);
-  expect(sdk.ownListings.createDraft).toHaveBeenCalledTimes(5);
-  expect(sdk.images.upload).toHaveBeenCalledTimes(5);
+  expect(sdk.ownListings.createDraft).toHaveBeenCalledTimes(7);
+  expect(sdk.images.upload).toHaveBeenCalledTimes(7);
   expect(listing.relationships.images.data[0].id).toBe('existing-image');
 });
 it('does not publish after image failure and can resume without creating another draft', async () => {
@@ -92,8 +92,8 @@ it('does not publish after image failure and can resume without creating another
   sdk.images.upload.mockRejectedValueOnce(new Error('network'));
   await expect(importDemoProperties(options)).rejects.toThrow('network');
   expect(sdk.ownListings.publishDraft).not.toHaveBeenCalled();
-  await expect(importDemoProperties(options)).resolves.toHaveLength(6);
-  expect(sdk.ownListings.createDraft).toHaveBeenCalledTimes(6);
+  await expect(importDemoProperties(options)).resolves.toHaveLength(8);
+  expect(sdk.ownListings.createDraft).toHaveBeenCalledTimes(8);
 });
 it('reads all pages and leaves closed and pending records untouched', async () => {
   const records = demoProperties.map((p, i) => ({
@@ -104,7 +104,7 @@ it('reads all pages and leaves closed and pending records untouched', async () =
   sdk.ownListings.query.mockImplementation(async ({ page }) => ({
     data: { data: page === 1 ? [] : records, meta: { totalPages: 2 } },
   }));
-  expect(await importDemoProperties(options)).toHaveLength(6);
+  expect(await importDemoProperties(options)).toHaveLength(8);
   expect(sdk.ownListings.query).toHaveBeenCalledTimes(2);
   expect(sdk.ownListings.update).not.toHaveBeenCalled();
   expect(sdk.ownListings.publishDraft).not.toHaveBeenCalled();

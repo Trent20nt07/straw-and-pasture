@@ -1,6 +1,6 @@
 import { constructQueryParamName, isFilterEnabled } from './search';
 
-const animalNames = ['horse', 'horses', 'cattle'];
+const animalNames = ['horse', 'horses', 'cattle', 'goat', 'sheep', 'donkey', 'alpaca'];
 const normalize = value =>
   String(value || '')
     .toLowerCase()

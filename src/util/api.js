@@ -7,14 +7,14 @@ import { types as sdkTypes, transit } from './sdkLoader';
 import Decimal from 'decimal.js';
 import { demoProperties } from './demoProperties';
 
-/** Load only bundled, known demo artwork for an authenticated Test import. */
+/** Load only bundled, known demo photographs for an authenticated Test import. */
 export const loadDemoPropertyImage = async key => {
   if (!demoProperties.some(p => p.key === key)) throw new Error('Unknown demo image');
-  const response = await window.fetch(`/static/demo-properties/${key}.png`);
-  if (!response.ok || !response.headers.get('content-type')?.startsWith('image/png')) {
+  const response = await window.fetch(`/static/demo-properties/${key}.jpg`);
+  if (!response.ok || !response.headers.get('content-type')?.startsWith('image/jpeg')) {
     throw new Error('Demo image unavailable');
   }
-  return new File([await response.blob()], `${key}.png`, { type: 'image/png' });
+  return new File([await response.blob()], `${key}.jpg`, { type: 'image/jpeg' });
 };
 
 export const apiBaseUrl = marketplaceRootURL => {

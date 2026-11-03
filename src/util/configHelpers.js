@@ -1430,6 +1430,13 @@ const mergeListingConfig = (hostedConfig, defaultConfigs, categoriesInUse) => {
     ? union(hostedListingFields, defaultListingFields, 'key')
     : hostedListingFields;
 
+  if (process.env.REACT_APP_PROGRESS_PREVIEW === 'true') {
+    const animals = listingFields.find(f => f.key === 'animalsAccepted');
+    if (animals) {
+      const additions = [{option:'goat', label:'Goat'}, {option:'sheep', label:'Sheep'}, {option:'donkey', label:'Donkey'}, {option:'alpaca', label:'Alpaca'}];
+      animals.enumOptions = [...(animals.enumOptions || []), ...additions.filter(a => !animals.enumOptions?.some(o => o.option === a.option))];
+    }
+  }
   const listingTypesInUse = listingTypes.map(lt => `${lt.listingType}`);
 
   return {

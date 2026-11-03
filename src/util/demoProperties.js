@@ -44,7 +44,7 @@ export const demoProperties = [
     city: 'Hendersonville, North Carolina',
     lat: 35.318,
     lng: -82.461,
-    animals: ['horse', 'cattle'],
+    animals: ['horse', 'donkey'],
     boarding: 'shelter',
     care: ['feeding'],
     price: 32,
@@ -71,6 +71,8 @@ export const demoProperties = [
     care: ['stall-cleaning'],
     price: 45,
   },
+  { key: 'riverbend-smallholding', name: 'Riverbend Smallholding', city: 'Florence, South Carolina', lat: 34.195, lng: -79.762, animals: ['goat', 'sheep'], boarding: 'shelter', care: ['feeding'], price: 18 },
+  { key: 'piedmont-alpaca-meadow', name: 'Piedmont Alpaca Meadow', city: 'Greenville, South Carolina', lat: 34.852, lng: -82.394, animals: ['alpaca', 'sheep'], boarding: 'pasture', care: ['feeding'], price: 28 },
 ];
 
 export const hasMapProvider = maps =>
@@ -120,7 +122,7 @@ export const importDemoProperties = async ({
     }
     const values = {
       title: `Demo · ${sample.name}`,
-      description: `DEMO LISTING — fictional property for testing Straw & Pasture. This is not an available property and cannot be booked for a real stay.\n\nA sample ${sample.boarding} setup near ${sample.city}, for comparing boarding options.\n\nAll property details, prices, city-level map positions, and availability are illustrative. Images are original labeled illustrations. Do not visit this location or arrange a real stay.`,
+      description: `DEMO LISTING — fictional property for testing Straw & Pasture. This is not an available property and cannot be booked for a real stay.\n\nA sample ${sample.boarding} setup near ${sample.city}, for comparing boarding options.\n\nAll property details, prices, city-level map positions, and availability are illustrative. Stock photographs illustrate the demo only; they do not depict the fictional property. Prices are test placeholders, not pricing recommendations. Do not visit this location or arrange a real stay.`,
       price: new types.Money(sample.price * 100, 'USD'),
       geolocation: new types.LatLng(sample.lat, sample.lng),
       publicData: {

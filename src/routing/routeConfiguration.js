@@ -24,6 +24,7 @@ const MakeOfferPage = loadable(() => import(/* webpackChunkName: "MakeOfferPage"
 const LandingPage = loadable(() => import(/* webpackChunkName: "LandingPage" */ '../containers/LandingPage/LandingPage'));
 const ListingPageCoverPhoto = loadable(() => import(/* webpackChunkName: "ListingPageCoverPhoto" */ /* webpackPrefetch: true */ '../containers/ListingPage/ListingPageCoverPhoto'));
 const ListingPageCarousel = loadable(() => import(/* webpackChunkName: "ListingPageCarousel" */ /* webpackPrefetch: true */ '../containers/ListingPage/ListingPageCarousel'));
+const MemberDashboardPage = loadable(() => import('../containers/MemberDashboardPage/MemberDashboardPage'));
 const ManageListingsPage = loadable(() => import(/* webpackChunkName: "ManageListingsPage" */ '../containers/ManageListingsPage/ManageListingsPage'));
 const ManageAccountPage = loadable(() => import(/* webpackChunkName: "ManageAccountPage" */ '../containers/ManageAccountPage/ManageAccountPage'));
 const PasswordChangePage = loadable(() => import(/* webpackChunkName: "PasswordChangePage" */ '../containers/PasswordChangePage/PasswordChangePage'));
@@ -77,6 +78,7 @@ const routeConfiguration = (layoutConfig, accessControlConfig) => {
   const authForPrivateMarketplace = isPrivateMarketplace ? { auth: true } : {};
   
   return [
+    { path: '/dashboard/:role(host|buyer)', name: 'MemberDashboardPage', component: MemberDashboardPage, auth: true, loadData: pageDataLoadingAPI.MemberDashboardPage.loadData },
     { path: '/welcome', name: 'WelcomePage', component: WelcomePage, loadData: pageDataLoadingAPI.LandingPage.loadData },
     {
       path: '/',

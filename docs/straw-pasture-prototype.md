@@ -117,6 +117,12 @@ Free under the Unsplash License at retrieval. This is a mood image, not a listed
 
 ## Custom welcome entrance
 
-The homepage plays a dismissible logo reveal once per browser session. The original circular logo fades in over a blurred glass overlay; its map pin drops into place, then the assembled mark enlarges and fades into the real homepage. `/welcome` replays the entrance and returns to `/` after completion. Reduced-motion visitors enter directly. Skip, Escape, image-error handling, and a six-second failsafe prevent the entrance from blocking access.
+The homepage plays a dismissible logo reveal once per browser session. The original circular logo fades in over a blurred glass overlay; its map pin drops into place, then the assembled mark shrinks and fades into the matching clean header logo. `/welcome` replays the entrance and returns to `/` after completion. Reduced-motion visitors enter directly. Skip, Escape, image-error handling, and a six-second failsafe prevent the entrance from blocking access.
 
 The pending marketplace walkthrough is retained in [testing-walkthrough.md](testing-walkthrough.md).
+
+## Member overview and expanded Test inventory
+
+`/dashboard/host` and `/dashboard/buyer` load all pages of the signed-in account’s own listings and transaction records through the SDK. These are operational totals, not traffic analytics. Both views use the current account; cross-account inquiry testing requires a second Test customer. Checkout and payouts remain gated.
+
+The eight fictional samples now use illustrative stock photographs. Their existing/new example prices are test placeholders only; hosts set their own prices. Additional animal values (goat, sheep, donkey, alpaca) are appended to the existing public multi-enum field only in the custom Test preview; the same options must be configured in Console before a production release. The existing search index is reused. No Live configuration or billing is changed.

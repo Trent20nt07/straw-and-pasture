@@ -65,3 +65,8 @@
     max-width: 30px;
   }
 }
+
+.cleanMark { width: 36px; height: 36px; flex-shrink: 0; display: block; }
+@media (max-width: 500px) { .cleanMark { width: 30px; height: 30px; } }
+.brandLockup { min-height: 60px; }
+@media (min-width: 768px) { .brandLockup { min-height: 72px; } }

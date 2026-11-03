@@ -1,3 +1,4 @@
+import MemberDashboardPage from './MemberDashboardPage/MemberDashboardPage.duck';
 /**
  * Export reducers from ducks modules of different containers (i.e. default export)
  * We are following Ducks module proposition:
@@ -25,6 +26,7 @@ import StripePayoutPage from './StripePayoutPage/StripePayoutPage.duck';
 import TransactionPage from './TransactionPage/TransactionPage.duck';
 
 export {
+  MemberDashboardPage,
   CheckoutPage,
   ContactDetailsPage,
   DemoWorkspacePage,

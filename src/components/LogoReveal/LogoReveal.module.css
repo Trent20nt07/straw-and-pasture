@@ -100,7 +100,7 @@
   animation: pinArrive 1.15s 0.65s cubic-bezier(0.18, 0.72, 0.25, 1) both;
 }
 .playing .glass {
-  animation: glassArrive 0.85s ease-out both;
+  animation: glassArrive 0.85s ease-out both, glassLeave 1.2s 2.6s ease-in both;
 }
 @keyframes circleArrive {
   from {
@@ -143,24 +143,11 @@
     transform: translateY(0);
   }
 }
+@keyframes glassLeave { to { opacity: 0; } }
 @keyframes approach {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  64% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
-  79% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(9);
-    filter: blur(12px);
-  }
+  0%, 60% { opacity: 1; transform: translate(0, 0) scale(1); }
+  94% { opacity: 1; transform: translate(var(--logo-x, 0px), var(--logo-y, 0px)) scale(var(--logo-scale, .1)); }
+  100% { opacity: 0; transform: translate(var(--logo-x, 0px), var(--logo-y, 0px)) scale(var(--logo-scale, .1)); }
 }
 @keyframes clearGlass {
   0%,
@@ -189,3 +176,5 @@
     opacity: 1;
   }
 }
+
+.playing .light { animation: glassLeave 1.2s 2.6s ease-in both; }

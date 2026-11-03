@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { useConfiguration } from '../../context/configurationContext';
 import { ResponsiveImage } from '../../components/';
 
+import LogoMark from './LogoMark';
 import css from './Logo.module.css';
 
 const HEIGHT_24 = 24;
@@ -139,7 +140,7 @@ const Logo = props => {
   // The uploaded Straw & Pasture asset is a round badge; pair it with a readable wordmark.
   return config.marketplaceName === 'Straw & Pasture' ? (
     <div className={css.brandLockup}>
-      {logo}
+      <LogoMark className={css.cleanMark} label={config.marketplaceName} />
       <span className={css.wordmark} aria-hidden="true">
         Straw &amp; Pasture
       </span>

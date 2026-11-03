@@ -53,6 +53,10 @@ const DemoWorkspacePage = () => {
               {m('localDraft')}
             </Link>
           </div>
+          <div className={css.links}>
+            <Link to="/dashboard/host" className={css.secondary}>{intl.formatMessage({id:'MemberDashboard.host'})}</Link>
+            <Link to="/dashboard/buyer" className={css.secondary}>{intl.formatMessage({id:'MemberDashboard.buyer'})}</Link>
+          </div>
           <section className={css.setup}>
             <div>
               <h2 className={css.sectionTitle}>{m('importTitle')}</h2>
@@ -99,7 +103,7 @@ const DemoWorkspacePage = () => {
                 <article key={sample.key} className={css.card}>
                   <img
                     className={css.image}
-                    src={`/static/demo-properties/${sample.key}.png`}
+                    src={`/static/demo-properties/${sample.key}.jpg`}
                     alt={m('imageAlt', { name: sample.name })}
                   />
                   <div className={css.cardBody}>
@@ -110,6 +114,7 @@ const DemoWorkspacePage = () => {
                       {sample.animals.map(a => label('animalsAccepted', a)).join(' · ')} ·{' '}
                       {label('boardingType', sample.boarding)}
                     </p>
+                    <p className={css.status}>{m('placeholderPrice')}</p>
                     <p className={css.price}>
                       {intl.formatNumber(sample.price, {
                         style: 'currency',

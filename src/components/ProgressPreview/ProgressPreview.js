@@ -13,6 +13,7 @@ export const isProgressPreview = process.env.REACT_APP_PROGRESS_PREVIEW === 'tru
 export const isPreviewPath = pathname =>
   pathname === '/' ||
   pathname === '/welcome' ||
+  /^\/dashboard\/(host|buyer)$/.test(pathname) ||
   pathname === '/s' ||
   /^\/s\//.test(pathname) ||
   /^\/l\/[^/]+\/[0-9a-f-]{36}\/?$/i.test(pathname) ||
@@ -75,6 +76,8 @@ const ProgressPreview = ({ children }) => {
         <Link className={css.noticeLink} to="/demo">
           <FormattedMessage id="DemoWorkspace.open" />
         </Link>
+        {' · '}<Link className={css.noticeLink} to="/dashboard/host"><FormattedMessage id="MemberDashboard.host" /></Link>
+        {' · '}<Link className={css.noticeLink} to="/dashboard/buyer"><FormattedMessage id="MemberDashboard.buyer" /></Link>
       </aside>
     </div>
   );
